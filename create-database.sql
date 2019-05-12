@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 12, 2019 at 12:21 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1:3306
+-- Erstellungszeit: 12. Mai 2019 um 13:04
+-- Server-Version: 5.7.24
+-- PHP-Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,149 +19,147 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `real_estate`
+-- Datenbank: `real_estatev3`
 --
-CREATE DATABASE IF NOT EXISTS `real_estate` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `real_estate`;
+CREATE DATABASE IF NOT EXISTS `real_estatev3` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `real_estatev3`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `address`
+-- Tabellenstruktur fÃ¼r Tabelle `address`
 --
 
 DROP TABLE IF EXISTS `address`;
-CREATE TABLE `address` (
-  `Address_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `address` (
+  `Address_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Street_Street_ID` int(11) NOT NULL,
-  `Suburb_Suburb_ID` int(11) NOT NULL,
-  `City_City_ID` int(11) NOT NULL,
-  `Country_Country_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Address_House_Number` int(11) NOT NULL,
+  PRIMARY KEY (`Address_ID`),
+  KEY `fk_Address_Street1_idx` (`Street_Street_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `address`
+-- Daten fÃ¼r Tabelle `address`
 --
 
-INSERT INTO `address` (`Address_ID`, `Street_Street_ID`, `Suburb_Suburb_ID`, `City_City_ID`, `Country_Country_ID`) VALUES
-(1, 29, 25, 1, 1),
-(2, 3, 1, 1, 1),
-(3, 72, 1, 1, 1),
-(4, 21, 28, 1, 1),
-(5, 4, 5, 1, 1),
-(6, 4, 20, 1, 1),
-(7, 16, 16, 1, 1),
-(8, 38, 27, 1, 1),
-(9, 48, 16, 1, 1),
-(10, 10, 12, 1, 1),
-(11, 44, 13, 1, 1),
-(12, 28, 19, 1, 1),
-(13, 15, 21, 1, 1),
-(14, 51, 29, 1, 1),
-(15, 1, 13, 1, 1),
-(16, 7, 31, 1, 1),
-(17, 54, 21, 1, 1),
-(18, 17, 9, 1, 1),
-(19, 52, 17, 1, 1),
-(20, 17, 8, 1, 1),
-(21, 37, 29, 1, 1),
-(22, 54, 25, 1, 1),
-(23, 7, 23, 1, 1),
-(24, 44, 11, 1, 1),
-(25, 24, 19, 1, 1),
-(26, 27, 16, 1, 1),
-(27, 55, 24, 1, 1),
-(28, 38, 20, 1, 1),
-(29, 16, 22, 1, 1),
-(30, 17, 9, 1, 1),
-(31, 65, 11, 1, 1),
-(32, 59, 3, 1, 1),
-(33, 45, 20, 1, 1),
-(34, 20, 25, 1, 1),
-(35, 69, 24, 1, 1),
-(36, 46, 5, 1, 1),
-(37, 31, 7, 1, 1),
-(38, 1, 3, 1, 1),
-(39, 27, 13, 1, 1),
-(40, 5, 4, 1, 1),
-(41, 1, 17, 1, 1),
-(42, 42, 12, 1, 1),
-(43, 56, 10, 1, 1),
-(44, 49, 26, 1, 1),
-(45, 45, 6, 1, 1),
-(46, 26, 9, 1, 1),
-(47, 53, 12, 1, 1),
-(48, 53, 21, 1, 1),
-(49, 57, 6, 1, 1),
-(50, 55, 18, 1, 1),
-(51, 5, 22, 1, 1),
-(52, 72, 25, 1, 1),
-(53, 36, 6, 1, 1),
-(54, 29, 10, 1, 1),
-(55, 31, 22, 1, 1),
-(56, 7, 32, 1, 1),
-(57, 60, 16, 1, 1),
-(58, 60, 26, 1, 1),
-(59, 56, 4, 1, 1),
-(60, 33, 29, 1, 1),
-(61, 16, 29, 1, 1),
-(62, 34, 11, 1, 1),
-(63, 57, 23, 1, 1),
-(64, 69, 17, 1, 1),
-(65, 23, 22, 1, 1),
-(66, 41, 6, 1, 1),
-(67, 38, 29, 1, 1),
-(68, 25, 5, 1, 1),
-(69, 16, 22, 1, 1),
-(70, 22, 10, 1, 1),
-(71, 61, 25, 1, 1),
-(72, 59, 32, 1, 1),
-(73, 63, 9, 1, 1),
-(74, 33, 27, 1, 1),
-(75, 54, 30, 1, 1),
-(76, 63, 10, 1, 1),
-(77, 31, 28, 1, 1),
-(78, 24, 21, 1, 1),
-(79, 37, 10, 1, 1),
-(80, 12, 26, 1, 1),
-(81, 10, 23, 1, 1),
-(82, 51, 28, 1, 1),
-(83, 53, 17, 1, 1),
-(84, 50, 30, 1, 1),
-(85, 51, 23, 1, 1),
-(86, 13, 1, 1, 1),
-(87, 4, 6, 1, 1),
-(88, 35, 27, 1, 1),
-(89, 7, 6, 1, 1),
-(90, 4, 3, 1, 1),
-(91, 12, 3, 1, 1),
-(92, 28, 6, 1, 1),
-(93, 41, 26, 1, 1),
-(94, 49, 24, 1, 1),
-(95, 60, 26, 1, 1),
-(96, 32, 23, 1, 1),
-(97, 43, 2, 1, 1),
-(98, 48, 25, 1, 1),
-(99, 48, 31, 1, 1),
-(100, 1, 30, 1, 1),
-(101, 59, 30, 1, 1),
-(105, 82, 30, 1, 1),
-(106, 83, 30, 1, 1);
+INSERT INTO `address` (`Address_ID`, `Street_Street_ID`, `Address_House_Number`) VALUES
+(1, 63, 66),
+(2, 68, 66),
+(3, 24, 45),
+(4, 29, 146),
+(5, 23, 15),
+(6, 34, 132),
+(7, 63, 96),
+(8, 8, 73),
+(9, 52, 29),
+(10, 68, 53),
+(11, 36, 142),
+(12, 60, 54),
+(13, 34, 105),
+(14, 8, 147),
+(15, 37, 31),
+(16, 10, 123),
+(17, 37, 36),
+(18, 33, 75),
+(19, 42, 88),
+(20, 32, 52),
+(21, 42, 94),
+(22, 65, 52),
+(23, 12, 74),
+(24, 14, 83),
+(25, 62, 72),
+(26, 54, 129),
+(27, 7, 28),
+(28, 10, 42),
+(29, 69, 57),
+(30, 19, 51),
+(31, 62, 59),
+(32, 59, 66),
+(33, 46, 97),
+(34, 9, 86),
+(35, 35, 31),
+(36, 65, 43),
+(37, 21, 18),
+(38, 27, 87),
+(39, 3, 97),
+(40, 68, 73),
+(41, 50, 148),
+(42, 39, 71),
+(43, 72, 42),
+(44, 49, 91),
+(45, 30, 62),
+(46, 30, 65),
+(47, 33, 14),
+(48, 11, 113),
+(49, 67, 146),
+(50, 9, 121),
+(51, 26, 20),
+(52, 11, 9),
+(53, 32, 146),
+(54, 23, 45),
+(55, 30, 18),
+(56, 44, 132),
+(57, 32, 70),
+(58, 14, 94),
+(59, 35, 68),
+(60, 69, 56),
+(61, 20, 117),
+(62, 25, 3),
+(63, 48, 70),
+(64, 50, 47),
+(65, 74, 34),
+(66, 68, 129),
+(67, 42, 65),
+(68, 68, 19),
+(69, 58, 25),
+(70, 24, 108),
+(71, 33, 13),
+(72, 2, 94),
+(73, 20, 148),
+(74, 5, 50),
+(75, 69, 39),
+(76, 48, 12),
+(77, 24, 44),
+(78, 24, 71),
+(79, 64, 131),
+(80, 46, 32),
+(81, 34, 113),
+(82, 51, 130),
+(83, 13, 28),
+(84, 64, 19),
+(85, 33, 32),
+(86, 40, 115),
+(87, 36, 63),
+(88, 4, 84),
+(89, 8, 105),
+(90, 50, 88),
+(91, 51, 28),
+(92, 35, 6),
+(93, 19, 145),
+(94, 36, 116),
+(95, 68, 142),
+(96, 22, 110),
+(97, 36, 97),
+(98, 12, 32),
+(99, 63, 141);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agent`
+-- Tabellenstruktur fÃ¼r Tabelle `agent`
 --
 
 DROP TABLE IF EXISTS `agent`;
-CREATE TABLE `agent` (
-  `Agent_ID` int(11) NOT NULL,
-  `Person_Person_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `agent` (
+  `Agent_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Person_Person_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Agent_ID`),
+  KEY `fk_Agent_Person_idx` (`Person_Person_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `agent`
+-- Daten fÃ¼r Tabelle `agent`
 --
 
 INSERT INTO `agent` (`Agent_ID`, `Person_Person_ID`) VALUES
@@ -180,56 +178,114 @@ INSERT INTO `agent` (`Agent_ID`, `Person_Person_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `available`
+-- Tabellenstruktur fÃ¼r Tabelle `available`
 --
 
 DROP TABLE IF EXISTS `available`;
-CREATE TABLE `available` (
-  `Avail_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `available` (
+  `Avail_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Avail_ListingDate` date DEFAULT NULL,
   `Avail_ListingPrice` int(45) DEFAULT NULL,
   `Seller_Seller_ID` int(11) NOT NULL,
   `Agent_Agent_ID` int(11) NOT NULL,
-  `Property_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Property_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Avail_ID`),
+  KEY `fk_Available_Seller1_idx` (`Seller_Seller_ID`),
+  KEY `fk_Available_Agent1_idx` (`Agent_Agent_ID`),
+  KEY `fk_Available_Property1` (`Property_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `available`
+-- Daten fÃ¼r Tabelle `available`
 --
 
 INSERT INTO `available` (`Avail_ID`, `Avail_ListingDate`, `Avail_ListingPrice`, `Seller_Seller_ID`, `Agent_Agent_ID`, `Property_ID`) VALUES
-(1, '2004-06-20', 1107000, 20, 4, 36),
-(2, '2013-05-20', 1224000, 19, 10, 82),
-(4, '2002-07-20', 495000, 26, 5, 95),
-(5, '2025-02-20', 1341000, 5, 9, 66),
-(6, '2008-03-20', 909000, 8, 10, 49),
-(7, '2020-03-20', 1548000, 19, 2, 57),
-(8, '2022-03-20', 1350000, 2, 3, 47),
-(9, '2002-04-20', 1305000, 15, 3, 68),
-(10, '2026-12-20', 1602000, 14, 1, 23),
-(11, '2010-01-20', 2070000, 3, 6, 53),
-(12, '2019-03-20', 1935000, 9, 5, 74),
-(13, '2030-01-20', 1260000, 11, 8, 56),
-(14, '2022-10-20', 405000, 16, 9, 75),
-(15, '2018-11-20', 747000, 13, 9, 58),
-(16, '2018-06-20', 2196000, 1, 3, 46),
-(17, '2018-07-10', 22000000, 8, 7, 101),
-(18, '2019-01-09', 28000000, 13, 4, 102);
+(1, '2017-03-12', 500000, 10, 4, 96),
+(2, '2018-09-08', 1500000, 28, 6, 69),
+(3, '2018-08-19', 803000, 19, 4, 74),
+(4, '2017-07-07', 539000, 27, 4, 25),
+(5, '2018-09-25', 858000, 22, 1, 82),
+(6, '2018-09-13', 539000, 18, 7, 98),
+(7, '2017-04-19', 1700000, 2, 7, 36),
+(8, '2018-03-03', 550000, 2, 5, 96),
+(9, '2018-01-30', 2250000, 13, 6, 65),
+(10, '2018-09-04', 1089000, 5, 2, 23),
+(11, '2018-08-05', 792000, 22, 10, 7),
+(12, '2017-12-23', 825000, 24, 3, 14),
+(13, '2017-12-20', 1089000, 1, 8, 23),
+(14, '2017-05-29', 803000, 29, 3, 67),
+(15, '2018-07-13', 2200000, 26, 1, 40),
+(16, '2018-01-20', 7500000, 7, 4, 64),
+(17, '2019-03-23', 1300000, 15, 4, 99),
+(18, '2018-02-18', 1056000, 3, 4, 60),
+(19, '2019-04-29', 2700000, 14, 6, 29),
+(20, '2019-04-30', 770000, 7, 7, 61),
+(21, '2018-03-14', 737000, 15, 8, 50),
+(22, '2018-12-06', 6600000, 2, 8, 65),
+(23, '2018-06-17', 748000, 20, 9, 18),
+(24, '2019-02-14', 1975000, 2, 3, 17),
+(25, '2018-11-09', 1001000, 5, 1, 47),
+(26, '2018-02-13', 1056000, 23, 6, 60),
+(27, '2019-04-15', 1001000, 8, 9, 47),
+(28, '2018-11-24', 792000, 1, 1, 52),
+(29, '2018-02-12', 1056000, 8, 4, 85),
+(30, '2019-02-13', 4700000, 19, 8, 29),
+(31, '2018-07-25', 1760000, 19, 9, 27),
+(32, '2018-04-16', 1650000, 22, 1, 28),
+(33, '2017-03-13', 1012000, 20, 10, 8),
+(34, '2017-07-14', 869000, 2, 10, 66),
+(35, '2017-11-11', 781000, 30, 8, 88),
+(36, '2017-03-07', 550000, 16, 10, 96),
+(37, '2018-07-24', 8800000, 6, 4, 39),
+(38, '2017-01-25', 792000, 23, 9, 71),
+(39, '2019-04-06', 836000, 14, 8, 13),
+(40, '2017-03-21', 869000, 22, 1, 68),
+(41, '2017-10-26', 946000, 7, 6, 5),
+(42, '2018-10-25', 935000, 15, 8, 34),
+(43, '2018-09-13', 396000, 11, 2, 94),
+(44, '2017-12-21', 957000, 1, 9, 55),
+(45, '2018-07-31', 385000, 12, 7, 45),
+(46, '2018-07-14', 913000, 28, 4, 79),
+(47, '2017-09-06', 363000, 22, 7, 86),
+(48, '2017-01-25', 1089000, 23, 4, 23),
+(49, '2017-04-08', 1540000, 4, 3, 76),
+(50, '2017-08-13', 1850000, 15, 1, 29),
+(51, '2018-02-21', 858000, 12, 10, 22),
+(52, '2017-02-18', 693000, 9, 4, 21),
+(53, '2018-12-08', 2310000, 29, 3, 95),
+(54, '2018-09-21', 451000, 16, 7, 80),
+(55, '2018-08-09', 638000, 15, 2, 32),
+(56, '2018-10-05', 759000, 14, 4, 46),
+(57, '2017-12-07', 1860000, 30, 5, 36),
+(58, '2017-10-03', 935000, 7, 1, 33),
+(59, '2019-03-30', 803000, 6, 4, 74),
+(60, '2017-02-16', 737000, 10, 1, 75),
+(61, '2018-08-01', 935000, 2, 8, 34),
+(62, '2017-11-13', 638000, 27, 5, 32),
+(63, '2017-07-20', 9900000, 29, 4, 64),
+(64, '2017-04-20', 781000, 25, 10, 88),
+(65, '2018-09-25', 550000, 18, 6, 96),
+(66, '2019-03-31', 781000, 1, 1, 88),
+(67, '2018-01-23', 1350000, 16, 9, 36),
+(68, '2019-01-23', 616000, 3, 3, 58),
+(69, '2018-09-15', 869000, 28, 6, 68);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buyer`
+-- Tabellenstruktur fÃ¼r Tabelle `buyer`
 --
 
 DROP TABLE IF EXISTS `buyer`;
-CREATE TABLE `buyer` (
-  `Buyer_ID` int(11) NOT NULL,
-  `Person_Person_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `buyer` (
+  `Buyer_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Person_Person_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Buyer_ID`),
+  KEY `fk_Buyer_Person1_idx` (`Person_Person_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `buyer`
+-- Daten fÃ¼r Tabelle `buyer`
 --
 
 INSERT INTO `buyer` (`Buyer_ID`, `Person_Person_ID`) VALUES
@@ -297,65 +353,71 @@ INSERT INTO `buyer` (`Buyer_ID`, `Person_Person_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Tabellenstruktur fÃ¼r Tabelle `city`
 --
 
 DROP TABLE IF EXISTS `city`;
-CREATE TABLE `city` (
-  `City_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `city` (
+  `City_ID` int(11) NOT NULL AUTO_INCREMENT,
   `City_Name` varchar(45) DEFAULT NULL,
-  `Country_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Country_ID` int(11) NOT NULL,
+  PRIMARY KEY (`City_ID`),
+  UNIQUE KEY `City_Name` (`City_Name`),
+  KEY `fk_City_Country` (`Country_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `city`
+-- Daten fÃ¼r Tabelle `city`
 --
 
 INSERT INTO `city` (`City_ID`, `City_Name`, `Country_ID`) VALUES
 (1, 'Cape Town', 1),
 (2, 'Paarl', 1),
-(3, 'Stellenbosch', 1),
-(15, 'Durban', 1);
+(3, 'Stellenbosch', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country`
+-- Tabellenstruktur fÃ¼r Tabelle `country`
 --
 
 DROP TABLE IF EXISTS `country`;
-CREATE TABLE `country` (
-  `Country_ID` int(11) NOT NULL,
-  `Country_Name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `country` (
+  `Country_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Country_Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Country_ID`),
+  UNIQUE KEY `Country_Name` (`Country_Name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `country`
+-- Daten fÃ¼r Tabelle `country`
 --
 
 INSERT INTO `country` (`Country_ID`, `Country_Name`) VALUES
-(10, 'Germany'),
+(2, 'Germany'),
 (1, 'South Africa');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `person`
+-- Tabellenstruktur fÃ¼r Tabelle `person`
 --
 
 DROP TABLE IF EXISTS `person`;
-CREATE TABLE `person` (
-  `Person_ID` int(11) NOT NULL,
-  `Address_Address_ID` int(11) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `person` (
+  `Person_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Address_Address_ID` int(11) NOT NULL,
   `Person_Firstname` varchar(45) DEFAULT NULL,
   `Person_LastName` varchar(45) DEFAULT NULL,
   `Person_PhoneNumber` varchar(45) DEFAULT NULL,
   `Person_Email` varchar(60) DEFAULT NULL,
-  `Person_DOB` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Person_DOB` date DEFAULT NULL,
+  PRIMARY KEY (`Person_ID`),
+  KEY `fk_Person_Address1_idx` (`Address_Address_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `person`
+-- Daten fÃ¼r Tabelle `person`
 --
 
 INSERT INTO `person` (`Person_ID`, `Address_Address_ID`, `Person_Firstname`, `Person_LastName`, `Person_PhoneNumber`, `Person_Email`, `Person_DOB`) VALUES
@@ -459,255 +521,234 @@ INSERT INTO `person` (`Person_ID`, `Address_Address_ID`, `Person_Firstname`, `Pe
 (98, 11, 'Odette', 'Walton', '03 46 32 86 86', 'elit@anteNunc.net', '1973-11-28'),
 (99, 63, 'Acton', 'Goodwin', '07 87 45 76 43', 'dolor.Donec@massaQuisque.org', '2045-09-28'),
 (100, 54, 'Brent', 'Mccormick', '03 26 61 62 28', 'Integer.aliquam.adipiscing@montes.edu', '1978-03-15'),
-(101, 22, 'Jonas', 'Schiller', '2212', 'jonasschiller@online.de', '1998-06-24'),
-(107, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
-(108, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
-(109, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
-(111, NULL, 'Aaron', 'Aaron', '1234567890', 'a@chandler.com', '0000-00-00'),
-(112, NULL, 'Abron', 'Abron', '1213215416', 'kin=g@bb.com', '0000-00-00'),
-(113, NULL, 'Aaron', 'Aaron', '1234567890', 'a@chandler.com', '0000-00-00'),
-(114, NULL, 'aaaaaa', 'bbbb', '1231651016', '2ejubeqjub@c.com', '0000-00-00');
+(101, 22, 'Jonas', 'Schiller', '2212', 'jonasschiller@online.de', '1998-06-24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `property`
+-- Tabellenstruktur fÃ¼r Tabelle `property`
 --
 
 DROP TABLE IF EXISTS `property`;
-CREATE TABLE `property` (
-  `Prop_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `property` (
+  `Prop_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Prop_Description` varchar(45) DEFAULT NULL,
   `Prop_Bedrooms` varchar(45) DEFAULT NULL,
   `Prop_Bathrooms` varchar(45) DEFAULT NULL,
   `Prop_SquareMeter` varchar(45) DEFAULT NULL,
   `Address_Address_ID` int(11) NOT NULL,
-  `Prop_Pool` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Prop_Pool` tinyint(1) NOT NULL,
+  PRIMARY KEY (`Prop_ID`),
+  KEY `address` (`Address_Address_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `property`
+-- Daten fÃ¼r Tabelle `property`
 --
 
 INSERT INTO `property` (`Prop_ID`, `Prop_Description`, `Prop_Bedrooms`, `Prop_Bathrooms`, `Prop_SquareMeter`, `Address_Address_ID`, `Prop_Pool`) VALUES
-(1, NULL, '2', '1', '109', 75, 0),
-(2, NULL, '6', '1', '202', 55, 0),
-(3, NULL, '3', '4', '181', 88, 1),
-(4, NULL, '3', '1', '69', 24, 1),
-(5, NULL, '1', '2', '48', 31, 0),
-(6, NULL, '2', '2', '88', 96, 1),
-(7, NULL, '3', '1', '71', 95, 1),
-(8, NULL, '5', '4', '226', 7, 1),
-(9, NULL, '5', '4', '216', 78, 0),
-(10, NULL, '4', '2', '113', 85, 0),
-(11, NULL, '4', '3', '189', 59, 0),
-(12, NULL, '6', '4', '186', 24, 1),
-(13, NULL, '3', '2', '92', 18, 0),
-(14, NULL, '3', '2', '145', 39, 1),
-(15, NULL, '4', '1', '93', 64, 0),
-(16, NULL, '4', '2', '128', 16, 0),
-(17, NULL, '5', '2', '153', 76, 1),
-(18, NULL, '5', '1', '117', 49, 0),
-(19, NULL, '4', '1', '143', 16, 0),
-(20, NULL, '5', '3', '183', 67, 1),
-(21, NULL, '6', '4', '188', 2, 1),
-(22, NULL, '5', '2', '199', 24, 0),
-(23, NULL, '4', '2', '135', 86, 0),
-(24, NULL, '2', '2', '113', 10, 1),
-(25, NULL, '6', '2', '220', 60, 0),
-(26, NULL, '1', '3', '116', 61, 1),
-(27, NULL, '5', '2', '148', 65, 1),
-(28, NULL, '6', '1', '146', 4, 1),
-(29, NULL, '3', '4', '182', 69, 0),
-(30, NULL, '2', '4', '123', 2, 1),
-(31, NULL, '3', '3', '164', 26, 0),
-(32, NULL, '2', '2', '101', 24, 1),
-(33, NULL, '4', '3', '127', 38, 1),
-(34, NULL, '1', '4', '85', 84, 1),
-(35, NULL, '2', '1', '81', 53, 1),
-(36, NULL, '6', '4', '195', 8, 0),
-(37, NULL, '4', '4', '139', 26, 1),
-(38, NULL, '5', '4', '226', 52, 0),
-(39, NULL, '4', '3', '146', 6, 1),
-(40, NULL, '2', '1', '101', 59, 0),
-(41, NULL, '6', '4', '188', 69, 0),
-(42, NULL, '5', '1', '177', 95, 0),
-(43, NULL, '1', '3', '91', 51, 0),
-(44, NULL, '3', '4', '152', 92, 1),
-(45, NULL, '1', '4', '109', 95, 0),
-(46, NULL, '2', '4', '116', 54, 1),
-(47, NULL, '5', '2', '163', 87, 0),
-(48, NULL, '5', '1', '127', 32, 0),
-(49, NULL, '3', '1', '71', 14, 0),
-(50, NULL, '1', '3', '107', 42, 0),
-(51, NULL, '2', '2', '112', 96, 1),
-(52, NULL, '5', '1', '159', 44, 0),
-(53, NULL, '5', '4', '176', 86, 1),
-(54, NULL, '1', '2', '90', 9, 1),
-(55, NULL, '1', '4', '107', 15, 1),
-(56, NULL, '3', '3', '125', 79, 0),
-(57, NULL, '5', '1', '149', 73, 1),
-(58, NULL, '2', '1', '77', 84, 0),
-(59, NULL, '1', '4', '118', 64, 0),
-(60, NULL, '5', '1', '115', 64, 0),
-(61, NULL, '3', '4', '174', 94, 1),
-(62, NULL, '6', '2', '170', 70, 1),
-(63, NULL, '2', '3', '77', 4, 1),
-(64, NULL, '3', '3', '119', 67, 1),
-(65, NULL, '5', '3', '175', 61, 0),
-(66, NULL, '2', '4', '122', 24, 0),
-(67, NULL, '5', '4', '210', 24, 1),
-(68, NULL, '2', '3', '84', 19, 0),
-(69, NULL, '3', '3', '109', 85, 0),
-(70, NULL, '6', '2', '219', 83, 0),
-(71, NULL, '3', '2', '110', 45, 1),
-(72, NULL, '5', '3', '151', 23, 0),
-(73, NULL, '2', '4', '125', 74, 0),
-(74, NULL, '5', '4', '181', 16, 1),
-(75, NULL, '5', '1', '190', 92, 0),
-(76, NULL, '4', '4', '155', 31, 1),
-(77, NULL, '5', '2', '174', 76, 1),
-(78, NULL, '5', '2', '166', 23, 0),
-(79, NULL, '5', '2', '160', 64, 1),
-(80, NULL, '1', '4', '69', 96, 1),
-(81, NULL, '3', '1', '77', 46, 1),
-(82, NULL, '4', '3', '172', 21, 0),
-(83, NULL, '1', '3', '85', 18, 0),
-(84, NULL, '2', '2', '85', 27, 1),
-(85, NULL, '3', '1', '81', 16, 1),
-(86, NULL, '6', '4', '239', 68, 0),
-(87, NULL, '2', '2', '121', 66, 0),
-(88, NULL, '6', '4', '201', 8, 1),
-(89, NULL, '4', '3', '174', 36, 0),
-(90, NULL, '6', '3', '183', 37, 0),
-(91, NULL, '1', '3', '77', 2, 1),
-(92, NULL, '5', '3', '193', 34, 0),
-(93, NULL, '5', '4', '187', 75, 1),
-(94, NULL, '5', '1', '187', 70, 0),
-(95, NULL, '3', '4', '124', 34, 0),
-(96, NULL, '3', '1', '102', 75, 1),
-(97, NULL, '5', '1', '175', 1, 0),
-(98, NULL, '2', '3', '124', 96, 1),
-(99, NULL, '1', '1', '31', 54, 1),
-(100, NULL, '2', '4', '139', 63, 1),
-(101, '\"Lovely Villa\"', '5', '3', '320', 100, 0),
-(102, '\"Huge Mansion\"', '6', '7', '520', 101, 0);
+(1, NULL, '4', '4', '259', 4, 1),
+(2, NULL, '5', '2', '241', 8, 0),
+(3, NULL, '3', '2', '182', 37, 0),
+(4, NULL, '5', '1', '163', 24, 0),
+(5, NULL, '3', '2', '120', 74, 0),
+(6, NULL, '2', '4', '156', 87, 0),
+(7, NULL, '1', '1', '87', 98, 1),
+(8, NULL, '2', '2', '90', 19, 1),
+(9, NULL, '3', '4', '173', 76, 1),
+(10, NULL, '5', '3', '213', 66, 1),
+(11, NULL, '5', '4', '272', 71, 0),
+(12, NULL, '6', '1', '252', 38, 1),
+(13, NULL, '3', '3', '203', 69, 0),
+(14, NULL, '4', '3', '203', 60, 1),
+(15, NULL, '4', '1', '133', 6, 0),
+(16, NULL, '2', '1', '106', 98, 0),
+(17, NULL, '6', '4', '297', 79, 1),
+(18, NULL, '6', '3', '284', 6, 1),
+(19, NULL, '5', '2', '231', 18, 1),
+(20, NULL, '2', '3', '145', 98, 1),
+(21, NULL, '6', '3', '293', 42, 0),
+(22, NULL, '6', '1', '220', 36, 1),
+(23, NULL, '5', '1', '184', 80, 1),
+(24, NULL, '1', '2', '105', 22, 1),
+(25, NULL, '3', '1', '102', 57, 1),
+(26, NULL, '2', '4', '172', 26, 1),
+(27, NULL, '3', '3', '142', 77, 1),
+(28, NULL, '6', '2', '274', 78, 1),
+(29, NULL, '2', '4', '154', 93, 0),
+(30, NULL, '6', '3', '236', 18, 0),
+(31, NULL, '3', '4', '203', 53, 0),
+(32, NULL, '6', '2', '240', 80, 0),
+(33, NULL, '5', '1', '174', 93, 1),
+(34, NULL, '5', '1', '163', 34, 0),
+(35, NULL, '6', '1', '222', 27, 1),
+(36, NULL, '2', '4', '192', 97, 1),
+(37, NULL, '2', '1', '134', 6, 0),
+(38, NULL, '5', '4', '237', 23, 1),
+(39, NULL, '3', '4', '235', 70, 0),
+(40, NULL, '4', '2', '219', 18, 1),
+(41, NULL, '1', '4', '146', 80, 0),
+(42, NULL, '1', '1', '88', 52, 1),
+(43, NULL, '2', '4', '186', 77, 1),
+(44, NULL, '5', '3', '200', 56, 0),
+(45, NULL, '2', '3', '120', 96, 1),
+(46, NULL, '2', '3', '180', 78, 0),
+(47, NULL, '5', '2', '196', 11, 0),
+(48, NULL, '6', '1', '206', 77, 0),
+(49, NULL, '6', '1', '199', 96, 0),
+(50, NULL, '4', '4', '222', 79, 0),
+(51, NULL, '1', '4', '121', 21, 1),
+(52, NULL, '3', '2', '159', 54, 0),
+(53, NULL, '1', '2', '110', 94, 0),
+(54, NULL, '6', '1', '211', 40, 0),
+(55, NULL, '1', '3', '120', 35, 0),
+(56, NULL, '3', '4', '177', 95, 1),
+(57, NULL, '5', '1', '171', 63, 0),
+(58, NULL, '4', '1', '175', 46, 0),
+(59, NULL, '4', '1', '127', 40, 0),
+(60, NULL, '3', '2', '125', 25, 1),
+(61, NULL, '5', '4', '241', 76, 1),
+(62, NULL, '3', '2', '146', 82, 0),
+(63, NULL, '5', '2', '186', 73, 1),
+(64, NULL, '5', '3', '262', 91, 1),
+(65, NULL, '6', '4', '317', 55, 1),
+(66, NULL, '1', '4', '152', 2, 1),
+(67, NULL, '2', '2', '88', 85, 1),
+(68, NULL, '4', '1', '158', 29, 1),
+(69, NULL, '4', '3', '231', 2, 1),
+(70, NULL, '5', '2', '179', 31, 0),
+(71, NULL, '5', '2', '245', 83, 0),
+(72, NULL, '3', '1', '106', 28, 1),
+(73, NULL, '5', '1', '191', 53, 0),
+(74, NULL, '1', '1', '48', 95, 1),
+(75, NULL, '4', '1', '143', 22, 0),
+(76, NULL, '5', '4', '300', 97, 0),
+(77, NULL, '5', '2', '181', 49, 0),
+(78, NULL, '4', '1', '149', 86, 0),
+(79, NULL, '3', '4', '167', 70, 1),
+(80, NULL, '2', '3', '167', 21, 1),
+(81, NULL, '6', '4', '330', 43, 0),
+(82, NULL, '3', '4', '175', 75, 0),
+(83, NULL, '1', '4', '176', 22, 0),
+(84, NULL, '2', '3', '126', 27, 0),
+(85, NULL, '4', '4', '218', 96, 0),
+(86, NULL, '5', '4', '225', 72, 1),
+(87, NULL, '1', '3', '133', 41, 0),
+(88, NULL, '2', '2', '127', 14, 1),
+(89, NULL, '3', '4', '167', 81, 1),
+(90, NULL, '2', '3', '160', 42, 1),
+(91, NULL, '1', '1', '89', 93, 0),
+(92, NULL, '6', '3', '305', 55, 0),
+(93, NULL, '4', '4', '257', 24, 0),
+(94, NULL, '2', '3', '115', 52, 0),
+(95, NULL, '2', '1', '123', 8, 1),
+(96, NULL, '1', '2', '84', 90, 1),
+(97, NULL, '2', '2', '88', 54, 1),
+(98, NULL, '2', '3', '168', 55, 0),
+(99, NULL, '3', '3', '184', 98, 1),
+(100, NULL, '2', '4', '161', 82, 0);
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `propertyDetails`
--- (See below for the actual view)
---
-DROP VIEW IF EXISTS `propertyDetails`;
-CREATE TABLE `propertyDetails` (
-`Prop_ID` int(11)
-,`Prop_Description` varchar(45)
-,`Prop_Bedrooms` varchar(45)
-,`Prop_Bathrooms` varchar(45)
-,`Prop_SquareMeter` varchar(45)
-,`Prop_Pool` tinyint(1)
-,`Address_Address_ID` int(11)
-,`Country_Name` varchar(45)
-,`City_Name` varchar(45)
-,`Suburb_Name` varchar(45)
-,`Street_Name` varchar(45)
-,`Photo_Path` varchar(200)
-);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `propertyphoto`
+-- Tabellenstruktur fÃ¼r Tabelle `propertyphoto`
 --
 
 DROP TABLE IF EXISTS `propertyphoto`;
-CREATE TABLE `propertyphoto` (
+CREATE TABLE IF NOT EXISTS `propertyphoto` (
   `Property_Prop_ID` int(11) NOT NULL,
-  `Photo_Path` varchar(200) NOT NULL
+  `Photo_Path` varchar(200) NOT NULL,
+  PRIMARY KEY (`Property_Prop_ID`,`Photo_Path`) USING BTREE,
+  KEY `fk_PropertyPhoto_Property1_idx` (`Property_Prop_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `propertyphoto`
+-- Daten fÃ¼r Tabelle `propertyphoto`
 --
 
 INSERT INTO `propertyphoto` (`Property_Prop_ID`, `Photo_Path`) VALUES
-(1, '/photos/TigerWaterfront/185741377.jpg'),
-(1, '/photos/TigerWaterfront/185742210.jpg'),
-(1, '/photos/TigerWaterfront/194689370.jpg'),
-(1, '/photos/TigerWaterfront/194689575.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497237.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497263.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497292.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497303.jpg'),
-(102, '/photos/AshbyManor/115271712.jpg'),
-(102, '/photos/AshbyManor/138061763.jpg'),
-(102, '/photos/AshbyManor/175800834.jpg'),
-(102, '/photos/AshbyManor/182499819.jpg');
+(64, '/photos/TigerWaterfront/185741377.jpg'),
+(64, '/photos/TigerWaterfront/185742210.jpg'),
+(64, '/photos/TigerWaterfront/194689370.jpg'),
+(64, '/photos/TigerWaterfront/194689575.jpg'),
+(65, '/photos/AshbyManor/115271712.jpg'),
+(65, '/photos/AshbyManor/138061763.jpg'),
+(65, '/photos/AshbyManor/175800834.jpg'),
+(65, '/photos/AshbyManor/182499819.jpg'),
+(73, '/photos/FirstHouseWestcampVilla/167497237.jpg'),
+(73, '/photos/FirstHouseWestcampVilla/167497263.jpg'),
+(73, '/photos/FirstHouseWestcampVilla/167497292.jpg'),
+(73, '/photos/FirstHouseWestcampVilla/167497303.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sales`
+-- Tabellenstruktur fÃ¼r Tabelle `sales`
 --
 
 DROP TABLE IF EXISTS `sales`;
-CREATE TABLE `sales` (
-  `Sale_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `sales` (
+  `Sale_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Agent_Agent_ID` int(11) NOT NULL,
   `Buyer_Buyer_ID` int(11) NOT NULL,
   `Property_Prop_ID` int(11) NOT NULL,
   `Sale_Amount` varchar(45) DEFAULT NULL,
   `Sale_Percentage` varchar(45) DEFAULT NULL,
   `Sale_Date` date DEFAULT NULL,
-  `Sales_TimeOnMarket` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Sale_TimeOnMarket` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`Sale_ID`),
+  KEY `fk_Sales_Agent1_idx` (`Agent_Agent_ID`),
+  KEY `fk_Sales_Buyer1_idx` (`Buyer_Buyer_ID`),
+  KEY `fk_Sales_Property1_idx` (`Property_Prop_ID`),
+  KEY `Sale_ID` (`Sale_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sales`
+-- Daten fÃ¼r Tabelle `sales`
 --
 
-INSERT INTO `sales` (`Sale_ID`, `Agent_Agent_ID`, `Buyer_Buyer_ID`, `Property_Prop_ID`, `Sale_Amount`, `Sale_Percentage`, `Sale_Date`, `Sales_TimeOnMarket`) VALUES
-(1, 7, 53, 59, '270000', '9', '2018-01-20', '142'),
-(2, 9, 35, 3, '90000', '13', '2018-10-20', '820'),
-(3, 6, 30, 72, '486000', '14', '2018-04-20', '576'),
-(4, 3, 13, 85, '720000', '5', '2018-05-20', '757'),
-(5, 8, 54, 80, '495000', '9', '2015-11-20', '937'),
-(6, 10, 41, 20, '405000', '11', '2019-01-20', '777'),
-(7, 8, 55, 25, '369000', '13', '2018-04-20', '583'),
-(8, 4, 14, 13, '774000', '7', '2018-12-20', '618'),
-(9, 10, 12, 72, '486000', '7', '2017-04-20', '399'),
-(10, 2, 50, 60, '675000', '15', '2016-09-20', '896'),
-(11, 5, 4, 29, '387000', '11', '2018-04-20', '854'),
-(12, 1, 49, 58, '486000', '10', '2017-06-20', '441'),
-(13, 9, 44, 22, '81000', '12', '2018-04-20', '305'),
-(14, 3, 9, 80, '495000', '6', '2018-07-20', '145'),
-(15, 9, 15, 58, '486000', '11', '2018-06-20', '400'),
-(16, 4, 48, 100, '180000', '9', '2018-01-20', '881'),
-(17, 9, 51, 68, '27000', '10', '2018-06-20', '151'),
-(18, 1, 4, 76, '738000', '14', '2016-02-20', '532'),
-(19, 7, 30, 79, '567000', '8', '2018-05-20', '422'),
-(20, 1, 26, 31, '729000', '5', '2018-10-12', '27'),
-(21, 2, 20, 20, '405000', '11', '2018-04-20', '920'),
-(22, 4, 48, 97, '324000', '9', '2017-05-20', '169'),
-(23, 10, 28, 33, '153000', '5', '2018-08-20', '23'),
-(24, 7, 10, 84, '18000', '13', '2016-06-20', '390'),
-(35, 2, 12, 45, '729000', '15', '2019-05-10', '3177');
+INSERT INTO `sales` (`Sale_ID`, `Agent_Agent_ID`, `Buyer_Buyer_ID`, `Property_Prop_ID`, `Sale_Amount`, `Sale_Percentage`, `Sale_Date`, `Sale_TimeOnMarket`) VALUES
+(1, 4, 47, 52, '648000', '12', '2017-06-19', '692'),
+(2, 3, 35, 72, '44000', '10', '2017-08-17', '55'),
+(3, 9, 28, 53, '531000', '8', '2018-05-19', '387'),
+(4, 7, 31, 41, '819000', '13', '2018-12-06', '339'),
+(5, 10, 23, 78, '288000', '15', '2018-08-10', '665'),
+(6, 4, 42, 59, '774000', '5', '2018-03-11', '562'),
+(7, 5, 11, 52, '648000', '9', '2018-03-05', '697'),
+(8, 9, 16, 82, '702000', '12', '2018-04-22', '319'),
+(9, 2, 38, 16, '396000', '13', '2018-02-11', '534'),
+(10, 3, 6, 51, '351000', '13', '2018-11-22', '322'),
+(11, 3, 18, 40, '279000', '11', '2018-07-19', '332'),
+(12, 8, 14, 16, '396000', '13', '2018-02-19', '50'),
+(13, 7, 38, 28, '135000', '13', '2019-04-19', '643'),
+(14, 5, 12, 45, '315000', '10', '2018-11-19', '236'),
+(15, 10, 37, 90, '711000', '14', '2017-10-19', '212'),
+(16, 1, 8, 72, '36000', '15', '2018-09-19', '776'),
+(17, 10, 20, 21, '567000', '14', '2018-06-19', '607'),
+(18, 9, 27, 29, '225000', '10', '2018-07-19', '574'),
+(19, 3, 6, 66, '711000', '5', '2018-08-19', '510'),
+(20, 5, 2, 92, '801000', '9', '2018-06-19', '660'),
+(21, 8, 34, 16, '396000', '11', '2017-06-12', '239'),
+(22, 10, 28, 58, '504000', '12', '2018-07-19', '659'),
+(23, 4, 34, 26, '621000', '9', '2018-06-25', '512'),
+(24, 1, 48, 42, '360000', '8', '2017-06-19', '739');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seller`
+-- Tabellenstruktur fÃ¼r Tabelle `seller`
 --
 
 DROP TABLE IF EXISTS `seller`;
-CREATE TABLE `seller` (
-  `Seller_ID` int(11) NOT NULL,
-  `Person_Person_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `seller` (
+  `Seller_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Person_Person_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Seller_ID`),
+  KEY `fk_Seller_Person1_idx` (`Person_Person_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `seller`
+-- Daten fÃ¼r Tabelle `seller`
 --
 
 INSERT INTO `seller` (`Seller_ID`, `Person_Person_ID`) VALUES
@@ -745,128 +786,117 @@ INSERT INTO `seller` (`Seller_ID`, `Person_Person_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `street`
+-- Tabellenstruktur fÃ¼r Tabelle `street`
 --
 
 DROP TABLE IF EXISTS `street`;
-CREATE TABLE `street` (
-  `Street_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `street` (
+  `Street_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Street_Name` varchar(45) DEFAULT NULL,
-  `Suburb_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Suburb_Suburb_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Street_ID`),
+  KEY `fk_Street_Suburb` (`Suburb_Suburb_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `street`
+-- Daten fÃ¼r Tabelle `street`
 --
 
-INSERT INTO `street` (`Street_ID`, `Street_Name`, `Suburb_ID`) VALUES
-(1, 'Et Ave', 1),
-(2, '3865 Aptent St.', 1),
-(3, 'Dictum Road', 6),
-(4, '5486 Laoreet Avenue', 1),
-(5, '5628 Imperdiet Rd.', 1),
-(6, '690-2677 Neque Street', 1),
-(7, 'Ap #859-6571 Donec Street', 1),
-(8, '6194 Mauris Rd.', 5),
-(9, '4570 Magna Avenue', 1),
-(10, 'Ap #617-2953 Sit St.', 1),
-(11, '798-9214 Vel Rd.', 1),
-(12, 'Ap #621-3272 Amet, Rd.', 1),
-(13, '8557 Nunc Avenue', 1),
-(14, '265 Aliquam St.', 1),
-(15, 'Ap #792-1649 Mollis Rd.', 1),
-(16, 'Ap #693-9462 Phasellus Street', 1),
-(17, '251-5270 Sem Street', 1),
-(18, '586-2587 Donec Road', 1),
-(19, 'Ap #371-8430 Cursus. Street', 1),
-(20, 'Ap #633-2033 Magna St.', 1),
-(21, 'Ap #593-416 Dis Ave', 1),
-(22, '704 Egestas Rd.', 1),
-(23, '7236 Eget, Road', 1),
-(24, 'Ap #108-5978 Vestibulum St.', 1),
-(25, 'Ap #923-8149 Dictum St.', 1),
-(26, '550-2101 Cras Rd.', 1),
-(27, 'Ap #395-1579 Aliquet Ave', 1),
-(28, '7358 Parturient Road', 1),
-(29, '897-5390 Risus. Avenue', 1),
-(30, 'Ap #114-4922 Posuere, Ave', 1),
-(31, 'Ap #276-8353 Lacus. Road', 1),
-(32, 'Ap #303-2819 Parturient Road', 1),
-(33, '888-898 Ullamcorper. St.', 1),
-(34, '2881 Et Av.', 1),
-(35, '590-5365 Sed St.', 1),
-(36, '443-3676 Varius Road', 1),
-(37, '809-4966 Ac Road', 1),
-(38, 'Ap #259-3387 Ornare, Road', 1),
-(39, '3005 A, Ave', 1),
-(40, '382-1395 Consequat Street', 1),
-(41, 'Ap #279-6194 Eget Street', 1),
-(42, '584-1649 Eget St.', 1),
-(43, '287-2383 Aliquet. Rd.', 1),
-(44, '173-8466 Mauris Av.', 1),
-(45, 'Ap #408-5504 Egestas St.', 1),
-(46, '145-3560 Euismod Road', 1),
-(47, 'Ap #502-6357 Nulla Road', 1),
-(48, '865-4513 Egestas. Av.', 1),
-(49, '216-6804 Sit Road', 1),
-(50, '836-2841 Egestas St.', 1),
-(51, 'Ap #844-8850 Eleifend, St.', 1),
-(52, '6377 Sodales Ave', 1),
-(53, '958-4018 Donec St.', 1),
-(54, 'Ap #368-3536 Vitae St.', 1),
-(55, '191 Auctor St.', 1),
-(56, '9799 Magnis Road', 1),
-(57, '459-8509 Eget St.', 1),
-(58, '3199 Sapien Road', 1),
-(59, 'Ap #705-1836 Ultricies Road', 1),
-(60, 'Ap #460-9787 Eget St.', 1),
-(61, '8967 Proin St.', 1),
-(62, 'Ap #620-9140 Fusce Road', 1),
-(63, '4009 Nam Ave', 1),
-(64, '866-3297 Malesuada Street', 1),
-(65, '5638 Ac Street', 1),
-(66, '697-7839 Nec, Street', 1),
-(67, '6586 Iaculis Street', 1),
-(68, '800 Suspendisse Av.', 1),
-(69, 'Ap #922-4903 Duis Road', 1),
-(70, '1683 Posuere St.', 1),
-(71, '6321 Ultricies St.', 1),
-(72, '331-6870 Sed Ave', 1),
-(73, '842 Nullam Rd.', 1),
-(74, '948 Vel, Rd.', 1),
-(75, 'lane', 1),
-(76, 'lane', 1),
-(77, 'lane', 1),
-(78, 'lane', 1),
-(79, 'lane', 1),
-(80, 'lane', 1),
-(81, 'lane', 1),
-(82, 'lane', 1),
-(83, 'lane', 1),
-(84, 'Main Road', 3),
-(85, 'Main Road', 12),
-(86, 'Everest Way', 3),
-(87, 'New Way', 1),
-(88, 'Miway', 1),
-(89, 'Et Avenue', 6),
-(90, 's', 6);
+INSERT INTO `street` (`Street_ID`, `Street_Name`, `Suburb_Suburb_ID`) VALUES
+(1, 'Et, Avenue', 9),
+(2, 'Aptent St.', 8),
+(3, 'Dictum Rd.', 6),
+(4, 'Laoreet Avenue', 18),
+(5, 'Imperdiet Rd.', 13),
+(6, 'Neque Street', 5),
+(7, 'Donec Street', 4),
+(8, 'Mauris Rd.', 7),
+(9, 'Magna Avenue', 8),
+(10, 'Sit St.', 6),
+(11, 'Vel Rd.', 5),
+(12, 'Amet, Rd.', 18),
+(13, 'Nunc Avenue', 6),
+(14, 'Aliquam St.', 9),
+(15, 'Mollis Rd.', 15),
+(16, 'Phasellus Street', 19),
+(17, 'Sem Street', 13),
+(18, 'Donec Road', 2),
+(19, 'Cursus. Street', 16),
+(20, 'Magna St.', 20),
+(21, 'Dis Ave', 3),
+(22, 'Egestas Rd.', 8),
+(23, 'Eget, Road', 3),
+(24, 'Vestibulum St.', 5),
+(25, 'Dictum St.', 2),
+(26, 'Cras Rd.', 2),
+(27, 'Aliquet Ave', 10),
+(28, 'Parturient Road', 1),
+(29, 'Risus. Avenue', 7),
+(30, 'Posuere, Ave', 13),
+(31, 'Lacus. Road', 15),
+(32, 'Parturient Road', 2),
+(33, 'Ullamcorper. St.', 4),
+(34, 'Et Av.', 16),
+(35, 'Sed St.', 1),
+(36, 'Varius Road', 20),
+(37, 'Ac Road', 6),
+(38, 'Ornare, Road', 16),
+(39, 'A, Ave', 17),
+(40, 'Consequat Street', 7),
+(41, 'Eget Street', 6),
+(42, 'Eget St.', 5),
+(43, 'Aliquet. Rd.', 19),
+(44, 'Mauris Av.', 15),
+(45, 'Egestas St.', 9),
+(46, 'Euismod Road', 3),
+(47, 'Nulla Road', 4),
+(48, 'Egestas. Av.', 8),
+(49, 'Sit Road', 17),
+(50, 'Egestas St.', 6),
+(51, 'Eleifend, St.', 12),
+(52, 'Sodales Ave', 11),
+(53, 'Donec St.', 8),
+(54, 'Vitae St.', 14),
+(55, 'Auctor St.', 8),
+(56, 'Magnis Road', 11),
+(57, 'Eget St.', 11),
+(58, 'Sapien Road', 18),
+(59, 'Ultricies Road', 8),
+(60, 'Eget St.', 12),
+(61, 'Proin St.', 5),
+(62, 'Fusce Road', 4),
+(63, 'Nam Ave', 5),
+(64, 'Malesuada Street', 10),
+(65, 'Ac Street', 16),
+(66, 'Nec, Street', 11),
+(67, 'Iaculis Street', 20),
+(68, 'Suspendisse Av.', 11),
+(69, 'Duis Road', 19),
+(70, 'Posuere St.', 10),
+(71, 'Ultricies St.', 12),
+(72, 'Sed Ave', 13),
+(73, 'Nullam Rd.', 10),
+(74, 'Vel, Rd.', 14);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suburb`
+-- Tabellenstruktur fÃ¼r Tabelle `suburb`
 --
 
 DROP TABLE IF EXISTS `suburb`;
-CREATE TABLE `suburb` (
-  `Suburb_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `suburb` (
+  `Suburb_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Suburb_Name` varchar(45) DEFAULT NULL,
   `Suburb_ZIP` varchar(45) DEFAULT NULL,
-  `City_ID` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `City_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Suburb_ID`),
+  UNIQUE KEY `Suburb_only_once` (`Suburb_Name`,`Suburb_ZIP`),
+  KEY `fk_Suburb_CIty` (`City_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `suburb`
+-- Daten fÃ¼r Tabelle `suburb`
 --
 
 INSERT INTO `suburb` (`Suburb_ID`, `Suburb_Name`, `Suburb_ZIP`, `City_ID`) VALUES
@@ -887,233 +917,22 @@ INSERT INTO `suburb` (`Suburb_ID`, `Suburb_Name`, `Suburb_ZIP`, `City_ID`) VALUE
 (15, 'Bonteheuwel', '7764', 1),
 (16, 'Crawford', '7780', 1),
 (17, 'Delft', '7100', 1),
-(18, 'Elsie\'s River', '7490', 1),
-(19, 'Epping', '7460', 1),
-(20, 'Grassy Park', '7941', 1),
-(21, 'Gugulethu', '7750', 1),
-(22, 'Kalksteenfontein', '7490', 1),
-(23, 'Khayelitsha', '7784', 1),
-(24, 'Langa', '7455', 1),
-(25, 'Lavender Hill', '7945', 1),
-(26, 'Lotus River', '7941', 1),
-(27, 'Macassar', '7130', 1),
-(28, 'Milnerton', '7441', 1),
-(29, 'Montague Gardens', '7441', 1),
-(30, 'Parklands', '7441', 1),
-(31, 'Table View', '7441', 1),
-(32, 'West Beach', '7441', 1);
-
--- --------------------------------------------------------
+(18, 'Milnerton', '8005', 1),
+(19, 'Elsie\'s River', '7490', 1),
+(20, 'Parklands', '7441', 1);
 
 --
--- Structure for view `propertyDetails`
---
-DROP TABLE IF EXISTS `propertyDetails`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Prop_Pool` AS `Prop_Pool`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`country`.`Country_Name` AS `Country_Name`,`city`.`City_Name` AS `City_Name`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`street`.`Street_Name` AS `Street_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path` from ((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `country` on((`address`.`Country_Country_ID` = `country`.`Country_ID`))) join `city` on((`address`.`City_City_ID` = `city`.`City_ID`))) join `suburb` on((`address`.`Suburb_Suburb_ID` = `suburb`.`Suburb_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) group by `property`.`Prop_ID`) ;
-
---
--- Indexes for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Indexes for table `address`
---
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`Address_ID`),
-  ADD KEY `fk_Address_Street1_idx` (`Street_Street_ID`),
-  ADD KEY `fk_Address_Suburb1_idx` (`Suburb_Suburb_ID`),
-  ADD KEY `fk_Address_City1_idx` (`City_City_ID`),
-  ADD KEY `fk_Address_Country1_idx` (`Country_Country_ID`);
-
---
--- Indexes for table `agent`
---
-ALTER TABLE `agent`
-  ADD PRIMARY KEY (`Agent_ID`),
-  ADD KEY `fk_Agent_Person_idx` (`Person_Person_ID`);
-
---
--- Indexes for table `available`
---
-ALTER TABLE `available`
-  ADD PRIMARY KEY (`Avail_ID`),
-  ADD KEY `fk_Available_Seller1_idx` (`Seller_Seller_ID`),
-  ADD KEY `fk_Available_Agent1_idx` (`Agent_Agent_ID`),
-  ADD KEY `fk_Available_Property1` (`Property_ID`);
-
---
--- Indexes for table `buyer`
---
-ALTER TABLE `buyer`
-  ADD PRIMARY KEY (`Buyer_ID`),
-  ADD KEY `fk_Buyer_Person1_idx` (`Person_Person_ID`);
-
---
--- Indexes for table `city`
---
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`City_ID`),
-  ADD UNIQUE KEY `City_Name` (`City_Name`),
-  ADD KEY `fk_country_id` (`Country_ID`);
-
---
--- Indexes for table `country`
---
-ALTER TABLE `country`
-  ADD PRIMARY KEY (`Country_ID`),
-  ADD UNIQUE KEY `Country_Name` (`Country_Name`);
-
---
--- Indexes for table `person`
---
-ALTER TABLE `person`
-  ADD PRIMARY KEY (`Person_ID`),
-  ADD KEY `fk_Person_Address1_idx` (`Address_Address_ID`);
-
---
--- Indexes for table `property`
---
-ALTER TABLE `property`
-  ADD PRIMARY KEY (`Prop_ID`),
-  ADD KEY `address` (`Address_Address_ID`);
-
---
--- Indexes for table `propertyphoto`
---
-ALTER TABLE `propertyphoto`
-  ADD PRIMARY KEY (`Property_Prop_ID`,`Photo_Path`) USING BTREE,
-  ADD KEY `fk_PropertyPhoto_Property1_idx` (`Property_Prop_ID`);
-
---
--- Indexes for table `sales`
---
-ALTER TABLE `sales`
-  ADD PRIMARY KEY (`Sale_ID`),
-  ADD KEY `fk_Sales_Agent1_idx` (`Agent_Agent_ID`),
-  ADD KEY `fk_Sales_Buyer1_idx` (`Buyer_Buyer_ID`),
-  ADD KEY `fk_Sales_Property1_idx` (`Property_Prop_ID`),
-  ADD KEY `Sale_ID` (`Sale_ID`);
-
---
--- Indexes for table `seller`
---
-ALTER TABLE `seller`
-  ADD PRIMARY KEY (`Seller_ID`),
-  ADD KEY `fk_Seller_Person1_idx` (`Person_Person_ID`);
-
---
--- Indexes for table `street`
---
-ALTER TABLE `street`
-  ADD PRIMARY KEY (`Street_ID`),
-  ADD KEY `fk_suburb_id` (`Suburb_ID`);
-
---
--- Indexes for table `suburb`
---
-ALTER TABLE `suburb`
-  ADD PRIMARY KEY (`Suburb_ID`),
-  ADD UNIQUE KEY `Suburb_Name` (`Suburb_Name`),
-  ADD KEY `fk_city_id` (`City_ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `address`
---
-ALTER TABLE `address`
-  MODIFY `Address_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
-
---
--- AUTO_INCREMENT for table `agent`
---
-ALTER TABLE `agent`
-  MODIFY `Agent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `available`
---
-ALTER TABLE `available`
-  MODIFY `Avail_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `buyer`
---
-ALTER TABLE `buyer`
-  MODIFY `Buyer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
---
--- AUTO_INCREMENT for table `city`
---
-ALTER TABLE `city`
-  MODIFY `City_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `country`
---
-ALTER TABLE `country`
-  MODIFY `Country_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `person`
---
-ALTER TABLE `person`
-  MODIFY `Person_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
-
---
--- AUTO_INCREMENT for table `property`
---
-ALTER TABLE `property`
-  MODIFY `Prop_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
-
---
--- AUTO_INCREMENT for table `sales`
---
-ALTER TABLE `sales`
-  MODIFY `Sale_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
---
--- AUTO_INCREMENT for table `seller`
---
-ALTER TABLE `seller`
-  MODIFY `Seller_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT for table `street`
---
-ALTER TABLE `street`
-  MODIFY `Street_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
-
---
--- AUTO_INCREMENT for table `suburb`
---
-ALTER TABLE `suburb`
-  MODIFY `Suburb_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `address`
---
-ALTER TABLE `address`
-  ADD CONSTRAINT `fk_Address_City1` FOREIGN KEY (`City_City_ID`) REFERENCES `city` (`City_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Address_Country1` FOREIGN KEY (`Country_Country_ID`) REFERENCES `country` (`Country_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Address_Street1` FOREIGN KEY (`Street_Street_ID`) REFERENCES `street` (`Street_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Address_Suburb1` FOREIGN KEY (`Suburb_Suburb_ID`) REFERENCES `suburb` (`Suburb_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `agent`
+-- Constraints der Tabelle `agent`
 --
 ALTER TABLE `agent`
   ADD CONSTRAINT `fk_Agent_Person` FOREIGN KEY (`Person_Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `available`
+-- Constraints der Tabelle `available`
 --
 ALTER TABLE `available`
   ADD CONSTRAINT `fk_Available_Agent1` FOREIGN KEY (`Agent_Agent_ID`) REFERENCES `agent` (`Agent_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -1121,37 +940,37 @@ ALTER TABLE `available`
   ADD CONSTRAINT `fk_Available_Seller1` FOREIGN KEY (`Seller_Seller_ID`) REFERENCES `seller` (`Seller_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `buyer`
+-- Constraints der Tabelle `buyer`
 --
 ALTER TABLE `buyer`
   ADD CONSTRAINT `fk_Buyer_Person1` FOREIGN KEY (`Person_Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `city`
+-- Constraints der Tabelle `city`
 --
 ALTER TABLE `city`
-  ADD CONSTRAINT `fk_country_id` FOREIGN KEY (`Country_ID`) REFERENCES `country` (`Country_ID`);
+  ADD CONSTRAINT `fk_City_Country` FOREIGN KEY (`Country_ID`) REFERENCES `country` (`Country_ID`);
 
 --
--- Constraints for table `person`
+-- Constraints der Tabelle `person`
 --
 ALTER TABLE `person`
   ADD CONSTRAINT `fk_Person_Address1` FOREIGN KEY (`Address_Address_ID`) REFERENCES `address` (`Address_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `property`
+-- Constraints der Tabelle `property`
 --
 ALTER TABLE `property`
   ADD CONSTRAINT `address` FOREIGN KEY (`Address_Address_ID`) REFERENCES `address` (`Address_ID`);
 
 --
--- Constraints for table `propertyphoto`
+-- Constraints der Tabelle `propertyphoto`
 --
 ALTER TABLE `propertyphoto`
   ADD CONSTRAINT `fk_PropertyPhoto_Property1` FOREIGN KEY (`Property_Prop_ID`) REFERENCES `property` (`Prop_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `sales`
+-- Constraints der Tabelle `sales`
 --
 ALTER TABLE `sales`
   ADD CONSTRAINT `fk_Sales_Agent1` FOREIGN KEY (`Agent_Agent_ID`) REFERENCES `agent` (`Agent_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -1159,22 +978,22 @@ ALTER TABLE `sales`
   ADD CONSTRAINT `fk_Sales_Property1` FOREIGN KEY (`Property_Prop_ID`) REFERENCES `property` (`Prop_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `seller`
+-- Constraints der Tabelle `seller`
 --
 ALTER TABLE `seller`
   ADD CONSTRAINT `fk_Seller_Person1` FOREIGN KEY (`Person_Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `street`
+-- Constraints der Tabelle `street`
 --
 ALTER TABLE `street`
-  ADD CONSTRAINT `fk_suburb_id` FOREIGN KEY (`Suburb_ID`) REFERENCES `street` (`Street_ID`);
+  ADD CONSTRAINT `fk_Street_Suburb` FOREIGN KEY (`Suburb_Suburb_ID`) REFERENCES `suburb` (`Suburb_ID`);
 
 --
--- Constraints for table `suburb`
+-- Constraints der Tabelle `suburb`
 --
 ALTER TABLE `suburb`
-  ADD CONSTRAINT `fk_city_id` FOREIGN KEY (`City_ID`) REFERENCES `city` (`City_ID`);
+  ADD CONSTRAINT `fk_Suburb_CIty` FOREIGN KEY (`City_ID`) REFERENCES `city` (`City_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
