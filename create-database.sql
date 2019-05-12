@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2019 at 12:21 AM
+-- Generation Time: May 12, 2019 at 09:20 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -34,119 +34,113 @@ DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address` (
   `Address_ID` int(11) NOT NULL,
   `Street_Street_ID` int(11) NOT NULL,
-  `Suburb_Suburb_ID` int(11) NOT NULL,
-  `City_City_ID` int(11) NOT NULL,
-  `Country_Country_ID` int(11) NOT NULL
+  `Address_House_Number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `address`
 --
 
-INSERT INTO `address` (`Address_ID`, `Street_Street_ID`, `Suburb_Suburb_ID`, `City_City_ID`, `Country_Country_ID`) VALUES
-(1, 29, 25, 1, 1),
-(2, 3, 1, 1, 1),
-(3, 72, 1, 1, 1),
-(4, 21, 28, 1, 1),
-(5, 4, 5, 1, 1),
-(6, 4, 20, 1, 1),
-(7, 16, 16, 1, 1),
-(8, 38, 27, 1, 1),
-(9, 48, 16, 1, 1),
-(10, 10, 12, 1, 1),
-(11, 44, 13, 1, 1),
-(12, 28, 19, 1, 1),
-(13, 15, 21, 1, 1),
-(14, 51, 29, 1, 1),
-(15, 1, 13, 1, 1),
-(16, 7, 31, 1, 1),
-(17, 54, 21, 1, 1),
-(18, 17, 9, 1, 1),
-(19, 52, 17, 1, 1),
-(20, 17, 8, 1, 1),
-(21, 37, 29, 1, 1),
-(22, 54, 25, 1, 1),
-(23, 7, 23, 1, 1),
-(24, 44, 11, 1, 1),
-(25, 24, 19, 1, 1),
-(26, 27, 16, 1, 1),
-(27, 55, 24, 1, 1),
-(28, 38, 20, 1, 1),
-(29, 16, 22, 1, 1),
-(30, 17, 9, 1, 1),
-(31, 65, 11, 1, 1),
-(32, 59, 3, 1, 1),
-(33, 45, 20, 1, 1),
-(34, 20, 25, 1, 1),
-(35, 69, 24, 1, 1),
-(36, 46, 5, 1, 1),
-(37, 31, 7, 1, 1),
-(38, 1, 3, 1, 1),
-(39, 27, 13, 1, 1),
-(40, 5, 4, 1, 1),
-(41, 1, 17, 1, 1),
-(42, 42, 12, 1, 1),
-(43, 56, 10, 1, 1),
-(44, 49, 26, 1, 1),
-(45, 45, 6, 1, 1),
-(46, 26, 9, 1, 1),
-(47, 53, 12, 1, 1),
-(48, 53, 21, 1, 1),
-(49, 57, 6, 1, 1),
-(50, 55, 18, 1, 1),
-(51, 5, 22, 1, 1),
-(52, 72, 25, 1, 1),
-(53, 36, 6, 1, 1),
-(54, 29, 10, 1, 1),
-(55, 31, 22, 1, 1),
-(56, 7, 32, 1, 1),
-(57, 60, 16, 1, 1),
-(58, 60, 26, 1, 1),
-(59, 56, 4, 1, 1),
-(60, 33, 29, 1, 1),
-(61, 16, 29, 1, 1),
-(62, 34, 11, 1, 1),
-(63, 57, 23, 1, 1),
-(64, 69, 17, 1, 1),
-(65, 23, 22, 1, 1),
-(66, 41, 6, 1, 1),
-(67, 38, 29, 1, 1),
-(68, 25, 5, 1, 1),
-(69, 16, 22, 1, 1),
-(70, 22, 10, 1, 1),
-(71, 61, 25, 1, 1),
-(72, 59, 32, 1, 1),
-(73, 63, 9, 1, 1),
-(74, 33, 27, 1, 1),
-(75, 54, 30, 1, 1),
-(76, 63, 10, 1, 1),
-(77, 31, 28, 1, 1),
-(78, 24, 21, 1, 1),
-(79, 37, 10, 1, 1),
-(80, 12, 26, 1, 1),
-(81, 10, 23, 1, 1),
-(82, 51, 28, 1, 1),
-(83, 53, 17, 1, 1),
-(84, 50, 30, 1, 1),
-(85, 51, 23, 1, 1),
-(86, 13, 1, 1, 1),
-(87, 4, 6, 1, 1),
-(88, 35, 27, 1, 1),
-(89, 7, 6, 1, 1),
-(90, 4, 3, 1, 1),
-(91, 12, 3, 1, 1),
-(92, 28, 6, 1, 1),
-(93, 41, 26, 1, 1),
-(94, 49, 24, 1, 1),
-(95, 60, 26, 1, 1),
-(96, 32, 23, 1, 1),
-(97, 43, 2, 1, 1),
-(98, 48, 25, 1, 1),
-(99, 48, 31, 1, 1),
-(100, 1, 30, 1, 1),
-(101, 59, 30, 1, 1),
-(105, 82, 30, 1, 1),
-(106, 83, 30, 1, 1);
+INSERT INTO `address` (`Address_ID`, `Street_Street_ID`, `Address_House_Number`) VALUES
+(1, 63, 66),
+(2, 68, 66),
+(3, 24, 45),
+(4, 29, 146),
+(5, 23, 15),
+(6, 34, 132),
+(7, 63, 96),
+(8, 8, 73),
+(9, 52, 29),
+(10, 68, 53),
+(11, 36, 142),
+(12, 60, 54),
+(13, 34, 105),
+(14, 8, 147),
+(15, 37, 31),
+(16, 10, 123),
+(17, 37, 36),
+(18, 33, 75),
+(19, 42, 88),
+(20, 32, 52),
+(21, 42, 94),
+(22, 65, 52),
+(23, 12, 74),
+(24, 14, 83),
+(25, 62, 72),
+(26, 54, 129),
+(27, 7, 28),
+(28, 10, 42),
+(29, 69, 57),
+(30, 19, 51),
+(31, 62, 59),
+(32, 59, 66),
+(33, 46, 97),
+(34, 9, 86),
+(35, 35, 31),
+(36, 65, 43),
+(37, 21, 18),
+(38, 27, 87),
+(39, 3, 97),
+(40, 68, 73),
+(41, 50, 148),
+(42, 39, 71),
+(43, 72, 42),
+(44, 49, 91),
+(45, 30, 62),
+(46, 30, 65),
+(47, 33, 14),
+(48, 11, 113),
+(49, 67, 146),
+(50, 9, 121),
+(51, 26, 20),
+(52, 11, 9),
+(53, 32, 146),
+(54, 23, 45),
+(55, 30, 18),
+(56, 44, 132),
+(57, 32, 70),
+(58, 14, 94),
+(59, 35, 68),
+(60, 69, 56),
+(61, 20, 117),
+(62, 25, 3),
+(63, 48, 70),
+(64, 50, 47),
+(65, 74, 34),
+(66, 68, 129),
+(67, 42, 65),
+(68, 68, 19),
+(69, 58, 25),
+(70, 24, 108),
+(71, 33, 13),
+(72, 2, 94),
+(73, 20, 148),
+(74, 5, 50),
+(75, 69, 39),
+(76, 48, 12),
+(77, 24, 44),
+(78, 24, 71),
+(79, 64, 131),
+(80, 46, 32),
+(81, 34, 113),
+(82, 51, 130),
+(83, 13, 28),
+(84, 64, 19),
+(85, 33, 32),
+(86, 40, 115),
+(87, 36, 63),
+(88, 4, 84),
+(89, 8, 105),
+(90, 50, 88),
+(91, 51, 28),
+(92, 35, 6),
+(93, 19, 145),
+(94, 36, 116),
+(95, 68, 142),
+(96, 22, 110),
+(97, 36, 97),
+(98, 12, 32),
+(99, 63, 141);
 
 -- --------------------------------------------------------
 
@@ -334,8 +328,8 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`Country_ID`, `Country_Name`) VALUES
-(10, 'Germany'),
-(1, 'South Africa');
+(1, 'South Africa'),
+(10, 'Germany');
 
 -- --------------------------------------------------------
 
@@ -590,8 +584,8 @@ INSERT INTO `property` (`Prop_ID`, `Prop_Description`, `Prop_Bedrooms`, `Prop_Ba
 (98, NULL, '2', '3', '124', 96, 1),
 (99, NULL, '1', '1', '31', 54, 1),
 (100, NULL, '2', '4', '139', 63, 1),
-(101, '\"Lovely Villa\"', '5', '3', '320', 100, 0),
-(102, '\"Huge Mansion\"', '6', '7', '520', 101, 0);
+(101, '\"Lovely Villa\"', '5', '3', '320', 85, 0),
+(102, '\"Huge Mansion\"', '6', '7', '520', 99, 0);
 
 -- --------------------------------------------------------
 
@@ -606,12 +600,19 @@ CREATE TABLE `propertyDetails` (
 ,`Prop_Bedrooms` varchar(45)
 ,`Prop_Bathrooms` varchar(45)
 ,`Prop_SquareMeter` varchar(45)
-,`Prop_Pool` tinyint(1)
 ,`Address_Address_ID` int(11)
-,`Country_Name` varchar(45)
-,`City_Name` varchar(45)
-,`Suburb_Name` varchar(45)
+,`Prop_Pool` tinyint(1)
+,`Address_ID` int(11)
+,`Address_House_Number` int(11)
+,`Street_Street_ID` int(11)
 ,`Street_Name` varchar(45)
+,`Suburb_ID` int(11)
+,`Suburb_Name` varchar(45)
+,`Suburb_ZIP` varchar(45)
+,`City_ID` int(11)
+,`City_Name` varchar(45)
+,`Country_ID` int(11)
+,`Country_Name` varchar(45)
 ,`Photo_Path` varchar(200)
 );
 
@@ -910,7 +911,7 @@ INSERT INTO `suburb` (`Suburb_ID`, `Suburb_Name`, `Suburb_ZIP`, `City_ID`) VALUE
 --
 DROP TABLE IF EXISTS `propertyDetails`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Prop_Pool` AS `Prop_Pool`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`country`.`Country_Name` AS `Country_Name`,`city`.`City_Name` AS `City_Name`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`street`.`Street_Name` AS `Street_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path` from ((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `country` on((`address`.`Country_Country_ID` = `country`.`Country_ID`))) join `city` on((`address`.`City_City_ID` = `city`.`City_ID`))) join `suburb` on((`address`.`Suburb_Suburb_ID` = `suburb`.`Suburb_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) group by `property`.`Prop_ID`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`property`.`Prop_Pool` AS `Prop_Pool`,`address`.`Address_ID` AS `Address_ID`,`address`.`Address_House_Number` AS `Address_House_Number`,`address`.`Street_Street_ID` AS `Street_Street_ID`,`street`.`Street_Name` AS `Street_Name`,`street`.`Suburb_ID` AS `Suburb_ID`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`suburb`.`Suburb_ZIP` AS `Suburb_ZIP`,`suburb`.`City_ID` AS `City_ID`,`city`.`City_Name` AS `City_Name`,`city`.`Country_ID` AS `Country_ID`,`country`.`Country_Name` AS `Country_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path` from ((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) join `suburb` on((`street`.`Suburb_ID` = `suburb`.`Suburb_ID`))) join `city` on((`suburb`.`City_ID` = `city`.`City_ID`))) join `country` on((`city`.`Country_ID` = `city`.`City_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) group by `property`.`Prop_ID`) ;
 
 --
 -- Indexes for dumped tables
@@ -921,92 +922,38 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`Address_ID`),
-  ADD KEY `fk_Address_Street1_idx` (`Street_Street_ID`),
-  ADD KEY `fk_Address_Suburb1_idx` (`Suburb_Suburb_ID`),
-  ADD KEY `fk_Address_City1_idx` (`City_City_ID`),
-  ADD KEY `fk_Address_Country1_idx` (`Country_Country_ID`);
-
---
--- Indexes for table `agent`
---
-ALTER TABLE `agent`
-  ADD PRIMARY KEY (`Agent_ID`),
-  ADD KEY `fk_Agent_Person_idx` (`Person_Person_ID`);
-
---
--- Indexes for table `available`
---
-ALTER TABLE `available`
-  ADD PRIMARY KEY (`Avail_ID`),
-  ADD KEY `fk_Available_Seller1_idx` (`Seller_Seller_ID`),
-  ADD KEY `fk_Available_Agent1_idx` (`Agent_Agent_ID`),
-  ADD KEY `fk_Available_Property1` (`Property_ID`);
-
---
--- Indexes for table `buyer`
---
-ALTER TABLE `buyer`
-  ADD PRIMARY KEY (`Buyer_ID`),
-  ADD KEY `fk_Buyer_Person1_idx` (`Person_Person_ID`);
+  ADD KEY `fk_Address_Street1_idx` (`Street_Street_ID`);
 
 --
 -- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`City_ID`),
-  ADD UNIQUE KEY `City_Name` (`City_Name`),
   ADD KEY `fk_country_id` (`Country_ID`);
 
 --
 -- Indexes for table `country`
 --
 ALTER TABLE `country`
-  ADD PRIMARY KEY (`Country_ID`),
-  ADD UNIQUE KEY `Country_Name` (`Country_Name`);
-
---
--- Indexes for table `person`
---
-ALTER TABLE `person`
-  ADD PRIMARY KEY (`Person_ID`),
-  ADD KEY `fk_Person_Address1_idx` (`Address_Address_ID`);
+  ADD PRIMARY KEY (`Country_ID`);
 
 --
 -- Indexes for table `property`
 --
 ALTER TABLE `property`
   ADD PRIMARY KEY (`Prop_ID`),
-  ADD KEY `address` (`Address_Address_ID`);
+  ADD KEY `fk_address_id` (`Address_Address_ID`);
 
 --
 -- Indexes for table `propertyphoto`
 --
 ALTER TABLE `propertyphoto`
-  ADD PRIMARY KEY (`Property_Prop_ID`,`Photo_Path`) USING BTREE,
-  ADD KEY `fk_PropertyPhoto_Property1_idx` (`Property_Prop_ID`);
-
---
--- Indexes for table `sales`
---
-ALTER TABLE `sales`
-  ADD PRIMARY KEY (`Sale_ID`),
-  ADD KEY `fk_Sales_Agent1_idx` (`Agent_Agent_ID`),
-  ADD KEY `fk_Sales_Buyer1_idx` (`Buyer_Buyer_ID`),
-  ADD KEY `fk_Sales_Property1_idx` (`Property_Prop_ID`),
-  ADD KEY `Sale_ID` (`Sale_ID`);
-
---
--- Indexes for table `seller`
---
-ALTER TABLE `seller`
-  ADD PRIMARY KEY (`Seller_ID`),
-  ADD KEY `fk_Seller_Person1_idx` (`Person_Person_ID`);
+  ADD KEY `fk_property_id` (`Property_Prop_ID`);
 
 --
 -- Indexes for table `street`
 --
 ALTER TABLE `street`
-  ADD PRIMARY KEY (`Street_ID`),
   ADD KEY `fk_suburb_id` (`Suburb_ID`);
 
 --
@@ -1014,7 +961,6 @@ ALTER TABLE `street`
 --
 ALTER TABLE `suburb`
   ADD PRIMARY KEY (`Suburb_ID`),
-  ADD UNIQUE KEY `Suburb_Name` (`Suburb_Name`),
   ADD KEY `fk_city_id` (`City_ID`);
 
 --
@@ -1025,106 +971,11 @@ ALTER TABLE `suburb`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `Address_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
-
---
--- AUTO_INCREMENT for table `agent`
---
-ALTER TABLE `agent`
-  MODIFY `Agent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `available`
---
-ALTER TABLE `available`
-  MODIFY `Avail_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `buyer`
---
-ALTER TABLE `buyer`
-  MODIFY `Buyer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
---
--- AUTO_INCREMENT for table `city`
---
-ALTER TABLE `city`
-  MODIFY `City_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `country`
---
-ALTER TABLE `country`
-  MODIFY `Country_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `person`
---
-ALTER TABLE `person`
-  MODIFY `Person_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
-
---
--- AUTO_INCREMENT for table `property`
---
-ALTER TABLE `property`
-  MODIFY `Prop_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
-
---
--- AUTO_INCREMENT for table `sales`
---
-ALTER TABLE `sales`
-  MODIFY `Sale_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
---
--- AUTO_INCREMENT for table `seller`
---
-ALTER TABLE `seller`
-  MODIFY `Seller_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT for table `street`
---
-ALTER TABLE `street`
-  MODIFY `Street_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
-
---
--- AUTO_INCREMENT for table `suburb`
---
-ALTER TABLE `suburb`
-  MODIFY `Suburb_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `Address_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `address`
---
-ALTER TABLE `address`
-  ADD CONSTRAINT `fk_Address_City1` FOREIGN KEY (`City_City_ID`) REFERENCES `city` (`City_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Address_Country1` FOREIGN KEY (`Country_Country_ID`) REFERENCES `country` (`Country_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Address_Street1` FOREIGN KEY (`Street_Street_ID`) REFERENCES `street` (`Street_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Address_Suburb1` FOREIGN KEY (`Suburb_Suburb_ID`) REFERENCES `suburb` (`Suburb_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `agent`
---
-ALTER TABLE `agent`
-  ADD CONSTRAINT `fk_Agent_Person` FOREIGN KEY (`Person_Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `available`
---
-ALTER TABLE `available`
-  ADD CONSTRAINT `fk_Available_Agent1` FOREIGN KEY (`Agent_Agent_ID`) REFERENCES `agent` (`Agent_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Available_Property1` FOREIGN KEY (`Property_ID`) REFERENCES `property` (`Prop_ID`),
-  ADD CONSTRAINT `fk_Available_Seller1` FOREIGN KEY (`Seller_Seller_ID`) REFERENCES `seller` (`Seller_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `buyer`
---
-ALTER TABLE `buyer`
-  ADD CONSTRAINT `fk_Buyer_Person1` FOREIGN KEY (`Person_Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `city`
@@ -1133,42 +984,22 @@ ALTER TABLE `city`
   ADD CONSTRAINT `fk_country_id` FOREIGN KEY (`Country_ID`) REFERENCES `country` (`Country_ID`);
 
 --
--- Constraints for table `person`
---
-ALTER TABLE `person`
-  ADD CONSTRAINT `fk_Person_Address1` FOREIGN KEY (`Address_Address_ID`) REFERENCES `address` (`Address_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `property`
 --
 ALTER TABLE `property`
-  ADD CONSTRAINT `address` FOREIGN KEY (`Address_Address_ID`) REFERENCES `address` (`Address_ID`);
+  ADD CONSTRAINT `fk_address_id` FOREIGN KEY (`Address_Address_ID`) REFERENCES `address` (`Address_ID`);
 
 --
 -- Constraints for table `propertyphoto`
 --
 ALTER TABLE `propertyphoto`
-  ADD CONSTRAINT `fk_PropertyPhoto_Property1` FOREIGN KEY (`Property_Prop_ID`) REFERENCES `property` (`Prop_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `sales`
---
-ALTER TABLE `sales`
-  ADD CONSTRAINT `fk_Sales_Agent1` FOREIGN KEY (`Agent_Agent_ID`) REFERENCES `agent` (`Agent_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Sales_Buyer1` FOREIGN KEY (`Buyer_Buyer_ID`) REFERENCES `buyer` (`Buyer_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Sales_Property1` FOREIGN KEY (`Property_Prop_ID`) REFERENCES `property` (`Prop_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `seller`
---
-ALTER TABLE `seller`
-  ADD CONSTRAINT `fk_Seller_Person1` FOREIGN KEY (`Person_Person_ID`) REFERENCES `person` (`Person_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_property_id` FOREIGN KEY (`Property_Prop_ID`) REFERENCES `property` (`Prop_ID`);
 
 --
 -- Constraints for table `street`
 --
 ALTER TABLE `street`
-  ADD CONSTRAINT `fk_suburb_id` FOREIGN KEY (`Suburb_ID`) REFERENCES `street` (`Street_ID`);
+  ADD CONSTRAINT `fk_suburb_id` FOREIGN KEY (`Suburb_ID`) REFERENCES `suburb` (`Suburb_ID`);
 
 --
 -- Constraints for table `suburb`

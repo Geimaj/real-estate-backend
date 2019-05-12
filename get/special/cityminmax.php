@@ -15,7 +15,7 @@ if (isset($_GET['max'])) {
 if (isset($_GET['city'])) {
     $city= $_GET['city'];
 } else {
-    $city="Cape Town";	
+    $city="Cape Town";
 	echo $city;
 }
 // required headers
@@ -24,9 +24,9 @@ header("Content-Type: application/json; charset=UTF-8");
 include("../../connection.php");
 
 $sql = "SELECT available.Avail_ID,street.Street_Name,suburb.Suburb_Name,suburb.Suburb_ZIP,city.City_Name,country.Country_Name FROM	(((((available
-INNER JOIN property  
+INNER JOIN property
 ON available.Property_ID=property.Prop_ID)
-INNER JOIN address 
+INNER JOIN address
 ON property.Address_Address_ID = address.Address_ID)
 INNER JOIN country
 ON country.Country_ID=address.Country_Country_ID)
@@ -39,7 +39,6 @@ ON street.Street_ID=address.Street_Street_ID
 WHERE city.City_Name=\"".$city."\" AND available.Avail_ListingPrice>".$min." AND available.Avail_ListingPrice<".$max;
 echo $sql;
 $result = $conn->query($sql);
-$jsonarray=array();
 if ($result->num_rows > 0) {
     // output data of each row
 	while($arrayresult = mysqli_fetch_array($result)) {
@@ -49,7 +48,7 @@ if ($result->num_rows > 0) {
 						"Suburb_Name"=>$arrayresult['Suburb_Name'],
 						"Suburb_ZIP"=>$arrayresult['Suburb_ZIP'],
 						"City_Name"=>$arrayresult['City_Name'],
-						"Country_Name"=>$arrayresult['Country_Name'],		
+						"Country_Name"=>$arrayresult['Country_Name'],
                                            );
     }
 	// set response code - 200 OK
@@ -59,7 +58,7 @@ if ($result->num_rows > 0) {
 } else {
 // set response code - 404 Not found
     http_response_code(404);
- 
+
     // tell the user no products found
     echo json_encode(
         array("message" => "No properties found.")

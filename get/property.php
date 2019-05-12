@@ -15,19 +15,19 @@ if ($result->num_rows > 0) {
     // output data of each row
 	while($arrayresult = mysqli_fetch_array($result)) {
        $myArray[] = array(
-                        "id"=>$arrayresult['Prop_ID'],
-						"description"=>$arrayresult['Prop_Description'],
-						"bedrooms"=>$arrayresult['Prop_Bedrooms'],
-						"bathrooms"=>$arrayresult['Prop_Bathrooms'],
-						"squareMeter"=>$arrayresult['Prop_SquareMeter'],
-						"addressID"=>$arrayresult['Address_Address_ID'],
-                        "pool"=>$arrayresult['Prop_Pool'],
-                        "country"=>$arrayresult['Country_Name'],
-                        "city"=>$arrayresult['City_Name'],
-                        "suburb"=>$arrayresult['Suburb_Name'],
-                        "street"=>$arrayresult['Street_Name'],
-                        "photo"=>$arrayresult['Photo_Path']
-                                           );
+            "id"=>$arrayresult['Prop_ID'],
+            "description"=>$arrayresult['Prop_Description'],
+            "bedrooms"=>$arrayresult['Prop_Bedrooms'],
+            "bathrooms"=>$arrayresult['Prop_Bathrooms'],
+            "squareMeter"=>$arrayresult['Prop_SquareMeter'],
+            "addressID"=>$arrayresult['Address_Address_ID'],
+            "pool"=>$arrayresult['Prop_Pool'],
+            "country"=>$arrayresult['Country_Name'],
+            "city"=>$arrayresult['City_Name'],
+            "suburb"=>$arrayresult['Suburb_Name'],
+            "street"=>$arrayresult['Street_Name'],
+            "photo"=>$arrayresult['Photo_Path']
+        );
     }
 	// set response code - 200 OK
     http_response_code(200);
