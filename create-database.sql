@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 13, 2019 at 01:58 PM
+-- Generation Time: May 13, 2019 at 04:50 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -614,6 +614,11 @@ CREATE TABLE `propertyDetails` (
 ,`Country_ID` int(11)
 ,`Country_Name` varchar(45)
 ,`Photo_Path` varchar(200)
+,`Avail_ID` int(11)
+,`Avail_ListingDate` date
+,`Avail_ListingPrice` int(45)
+,`Seller_Seller_ID` int(11)
+,`Agent_Agent_ID` int(11)
 );
 
 -- --------------------------------------------------------
@@ -911,7 +916,7 @@ INSERT INTO `suburb` (`Suburb_ID`, `Suburb_Name`, `Suburb_ZIP`, `City_ID`) VALUE
 --
 DROP TABLE IF EXISTS `propertyDetails`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`property`.`Prop_Pool` AS `Prop_Pool`,`address`.`Address_ID` AS `Address_ID`,`address`.`Address_House_Number` AS `Address_House_Number`,`address`.`Street_Street_ID` AS `Street_Street_ID`,`street`.`Street_Name` AS `Street_Name`,`street`.`Suburb_ID` AS `Suburb_ID`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`suburb`.`Suburb_ZIP` AS `Suburb_ZIP`,`suburb`.`City_ID` AS `City_ID`,`city`.`City_Name` AS `City_Name`,`city`.`Country_ID` AS `Country_ID`,`country`.`Country_Name` AS `Country_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path` from ((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) join `suburb` on((`street`.`Suburb_ID` = `suburb`.`Suburb_ID`))) join `city` on((`suburb`.`City_ID` = `city`.`City_ID`))) join `country` on((`city`.`Country_ID` = `city`.`City_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) group by `property`.`Prop_ID`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`property`.`Prop_Pool` AS `Prop_Pool`,`address`.`Address_ID` AS `Address_ID`,`address`.`Address_House_Number` AS `Address_House_Number`,`address`.`Street_Street_ID` AS `Street_Street_ID`,`street`.`Street_Name` AS `Street_Name`,`street`.`Suburb_ID` AS `Suburb_ID`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`suburb`.`Suburb_ZIP` AS `Suburb_ZIP`,`suburb`.`City_ID` AS `City_ID`,`city`.`City_Name` AS `City_Name`,`city`.`Country_ID` AS `Country_ID`,`country`.`Country_Name` AS `Country_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path`,`available`.`Avail_ID` AS `Avail_ID`,`available`.`Avail_ListingDate` AS `Avail_ListingDate`,`available`.`Avail_ListingPrice` AS `Avail_ListingPrice`,`available`.`Seller_Seller_ID` AS `Seller_Seller_ID`,`available`.`Agent_Agent_ID` AS `Agent_Agent_ID` from (((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) join `suburb` on((`street`.`Suburb_ID` = `suburb`.`Suburb_ID`))) join `city` on((`suburb`.`City_ID` = `city`.`City_ID`))) join `country` on((`city`.`Country_ID` = `city`.`City_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) left join `available` on((`available`.`Property_ID` = `property`.`Prop_ID`))) group by `property`.`Prop_ID`) ;
 
 --
 -- Indexes for dumped tables

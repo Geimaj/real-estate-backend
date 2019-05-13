@@ -9,6 +9,7 @@ id
 street number
 street name
 suburb id
+    PROPERTY ID
 
 
 // ??

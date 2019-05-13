@@ -8,7 +8,7 @@ if($mysql_password === null){
 }
 # MySQL with PDO_MYSQL
 $db = new PDO("mysql:host=$mysql_host", $mysql_user, $mysql_password);
-$query = file_get_contents("create-database.sql");
+$query = file_get_contents("./DB/create-database.sql");
 $stmt = $db->prepare($query);
 if ($stmt->execute())
      echo "Success";

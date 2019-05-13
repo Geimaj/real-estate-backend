@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 13, 2019 at 01:58 PM
+-- Generation Time: May 13, 2019 at 10:20 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -194,21 +194,21 @@ CREATE TABLE `available` (
 INSERT INTO `available` (`Avail_ID`, `Avail_ListingDate`, `Avail_ListingPrice`, `Seller_Seller_ID`, `Agent_Agent_ID`, `Property_ID`) VALUES
 (1, '2004-06-20', 1107000, 20, 4, 36),
 (2, '2013-05-20', 1224000, 19, 10, 82),
-(4, '2002-07-20', 495000, 26, 5, 95),
-(5, '2025-02-20', 1341000, 5, 9, 66),
-(6, '2008-03-20', 909000, 8, 10, 49),
-(7, '2020-03-20', 1548000, 19, 2, 57),
-(8, '2022-03-20', 1350000, 2, 3, 47),
-(9, '2002-04-20', 1305000, 15, 3, 68),
-(10, '2026-12-20', 1602000, 14, 1, 23),
-(11, '2010-01-20', 2070000, 3, 6, 53),
-(12, '2019-03-20', 1935000, 9, 5, 74),
-(13, '2030-01-20', 1260000, 11, 8, 56),
-(14, '2022-10-20', 405000, 16, 9, 75),
-(15, '2018-11-20', 747000, 13, 9, 58),
-(16, '2018-06-20', 2196000, 1, 3, 46),
-(17, '2018-07-10', 22000000, 8, 7, 101),
-(18, '2019-01-09', 28000000, 13, 4, 102);
+(3, '2002-07-20', 495000, 26, 5, 95),
+(4, '2025-02-20', 1341000, 5, 9, 66),
+(5, '2008-03-20', 909000, 8, 10, 49),
+(6, '2020-03-20', 1548000, 19, 2, 57),
+(7, '2022-03-20', 1350000, 2, 3, 47),
+(8, '2002-04-20', 1305000, 15, 3, 68),
+(9, '2026-12-20', 1602000, 14, 1, 23),
+(10, '2010-01-20', 2070000, 3, 6, 53),
+(11, '2019-03-20', 1935000, 9, 5, 74),
+(12, '2030-01-20', 1260000, 11, 8, 56),
+(13, '2022-10-20', 405000, 16, 9, 75),
+(14, '2018-11-20', 747000, 13, 9, 58),
+(15, '2018-06-20', 2196000, 1, 3, 46),
+(16, '2018-07-10', 22000000, 8, 7, 101),
+(17, '2019-01-09', 28000000, 13, 4, 102);
 
 -- --------------------------------------------------------
 
@@ -307,9 +307,10 @@ CREATE TABLE `city` (
 
 INSERT INTO `city` (`City_ID`, `City_Name`, `Country_ID`) VALUES
 (1, 'Cape Town', 1),
-(2, 'Paarl', 1),
-(3, 'Stellenbosch', 1),
-(15, 'Durban', 1);
+(2, 'Gauteng', 1),
+(3, 'Port Elizebeth', 1),
+(4, 'Frankfurt', 2),
+(5, 'Durban', 1);
 
 -- --------------------------------------------------------
 
@@ -329,7 +330,7 @@ CREATE TABLE `country` (
 
 INSERT INTO `country` (`Country_ID`, `Country_Name`) VALUES
 (1, 'South Africa'),
-(10, 'Germany');
+(2, 'Germany');
 
 -- --------------------------------------------------------
 
@@ -454,13 +455,13 @@ INSERT INTO `person` (`Person_ID`, `Address_Address_ID`, `Person_Firstname`, `Pe
 (99, 63, 'Acton', 'Goodwin', '07 87 45 76 43', 'dolor.Donec@massaQuisque.org', '2045-09-28'),
 (100, 54, 'Brent', 'Mccormick', '03 26 61 62 28', 'Integer.aliquam.adipiscing@montes.edu', '1978-03-15'),
 (101, 22, 'Jonas', 'Schiller', '2212', 'jonasschiller@online.de', '1998-06-24'),
-(107, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
-(108, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
-(109, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
-(111, NULL, 'Aaron', 'Aaron', '1234567890', 'a@chandler.com', '0000-00-00'),
-(112, NULL, 'Abron', 'Abron', '1213215416', 'kin=g@bb.com', '0000-00-00'),
-(113, NULL, 'Aaron', 'Aaron', '1234567890', 'a@chandler.com', '0000-00-00'),
-(114, NULL, 'aaaaaa', 'bbbb', '1231651016', '2ejubeqjub@c.com', '0000-00-00');
+(102, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
+(103, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
+(104, NULL, 'Abraham', 'Abraham', '0424928934', 'pellentesque.Sed@sit.net', '2052-05-22'),
+(105, NULL, 'Aaron', 'Aaron', '1234567890', 'a@chandler.com', '0000-00-00'),
+(106, NULL, 'Abron', 'Abron', '1213215416', 'kin=g@bb.com', '0000-00-00'),
+(107, NULL, 'Aaron', 'Aaron', '1234567890', 'a@chandler.com', '0000-00-00'),
+(108, NULL, 'aaaaaa', 'bbbb', '1231651016', '2ejubeqjub@c.com', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -614,6 +615,11 @@ CREATE TABLE `propertyDetails` (
 ,`Country_ID` int(11)
 ,`Country_Name` varchar(45)
 ,`Photo_Path` varchar(200)
+,`Avail_ID` int(11)
+,`Avail_ListingDate` date
+,`Avail_ListingPrice` int(45)
+,`Seller_Seller_ID` int(11)
+,`Agent_Agent_ID` int(11)
 );
 
 -- --------------------------------------------------------
@@ -624,6 +630,7 @@ CREATE TABLE `propertyDetails` (
 
 DROP TABLE IF EXISTS `propertyphoto`;
 CREATE TABLE `propertyphoto` (
+  `Photo_ID` int(11) NOT NULL,
   `Property_Prop_ID` int(11) NOT NULL,
   `Photo_Path` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -632,19 +639,19 @@ CREATE TABLE `propertyphoto` (
 -- Dumping data for table `propertyphoto`
 --
 
-INSERT INTO `propertyphoto` (`Property_Prop_ID`, `Photo_Path`) VALUES
-(1, '/photos/TigerWaterfront/185741377.jpg'),
-(1, '/photos/TigerWaterfront/185742210.jpg'),
-(1, '/photos/TigerWaterfront/194689370.jpg'),
-(1, '/photos/TigerWaterfront/194689575.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497237.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497263.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497292.jpg'),
-(101, '/photos/FirstHouseWestcampVilla/167497303.jpg'),
-(102, '/photos/AshbyManor/115271712.jpg'),
-(102, '/photos/AshbyManor/138061763.jpg'),
-(102, '/photos/AshbyManor/175800834.jpg'),
-(102, '/photos/AshbyManor/182499819.jpg');
+INSERT INTO `propertyphoto` (`Photo_ID`, `Property_Prop_ID`, `Photo_Path`) VALUES
+(1, 1, '/photos/TigerWaterfront/185741377.jpg'),
+(2, 1, '/photos/TigerWaterfront/185742210.jpg'),
+(3, 1, '/photos/TigerWaterfront/194689370.jpg'),
+(4, 1, '/photos/TigerWaterfront/194689575.jpg'),
+(5, 2, '/photos/FirstHouseWestcampVilla/167497237.jpg'),
+(6, 2, '/photos/FirstHouseWestcampVilla/167497263.jpg'),
+(7, 2, '/photos/FirstHouseWestcampVilla/167497292.jpg'),
+(8, 2, '/photos/FirstHouseWestcampVilla/167497303.jpg'),
+(9, 3, '/photos/AshbyManor/115271712.jpg'),
+(10, 3, '/photos/AshbyManor/138061763.jpg'),
+(11, 3, '/photos/AshbyManor/175800834.jpg'),
+(12, 3, '/photos/AshbyManor/182499819.jpg');
 
 -- --------------------------------------------------------
 
@@ -693,7 +700,7 @@ INSERT INTO `sales` (`Sale_ID`, `Agent_Agent_ID`, `Buyer_Buyer_ID`, `Property_Pr
 (22, 4, 48, 97, '324000', '9', '2017-05-20', '169'),
 (23, 10, 28, 33, '153000', '5', '2018-08-20', '23'),
 (24, 7, 10, 84, '18000', '13', '2016-06-20', '390'),
-(35, 2, 12, 45, '729000', '15', '2019-05-10', '3177');
+(25, 2, 12, 45, '729000', '15', '2019-05-10', '3177');
 
 -- --------------------------------------------------------
 
@@ -849,8 +856,7 @@ INSERT INTO `street` (`Street_ID`, `Street_Name`, `Suburb_ID`) VALUES
 (86, 'Everest Way', 3),
 (87, 'New Way', 1),
 (88, 'Miway', 1),
-(89, 'Et Avenue', 6),
-(90, 's', 6);
+(89, 'Et Avenue', 6);
 
 -- --------------------------------------------------------
 
@@ -911,7 +917,7 @@ INSERT INTO `suburb` (`Suburb_ID`, `Suburb_Name`, `Suburb_ZIP`, `City_ID`) VALUE
 --
 DROP TABLE IF EXISTS `propertyDetails`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`property`.`Prop_Pool` AS `Prop_Pool`,`address`.`Address_ID` AS `Address_ID`,`address`.`Address_House_Number` AS `Address_House_Number`,`address`.`Street_Street_ID` AS `Street_Street_ID`,`street`.`Street_Name` AS `Street_Name`,`street`.`Suburb_ID` AS `Suburb_ID`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`suburb`.`Suburb_ZIP` AS `Suburb_ZIP`,`suburb`.`City_ID` AS `City_ID`,`city`.`City_Name` AS `City_Name`,`city`.`Country_ID` AS `Country_ID`,`country`.`Country_Name` AS `Country_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path` from ((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) join `suburb` on((`street`.`Suburb_ID` = `suburb`.`Suburb_ID`))) join `city` on((`suburb`.`City_ID` = `city`.`City_ID`))) join `country` on((`city`.`Country_ID` = `city`.`City_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) group by `property`.`Prop_ID`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `propertyDetails`  AS  (select `property`.`Prop_ID` AS `Prop_ID`,`property`.`Prop_Description` AS `Prop_Description`,`property`.`Prop_Bedrooms` AS `Prop_Bedrooms`,`property`.`Prop_Bathrooms` AS `Prop_Bathrooms`,`property`.`Prop_SquareMeter` AS `Prop_SquareMeter`,`property`.`Address_Address_ID` AS `Address_Address_ID`,`property`.`Prop_Pool` AS `Prop_Pool`,`address`.`Address_ID` AS `Address_ID`,`address`.`Address_House_Number` AS `Address_House_Number`,`address`.`Street_Street_ID` AS `Street_Street_ID`,`street`.`Street_Name` AS `Street_Name`,`street`.`Suburb_ID` AS `Suburb_ID`,`suburb`.`Suburb_Name` AS `Suburb_Name`,`suburb`.`Suburb_ZIP` AS `Suburb_ZIP`,`suburb`.`City_ID` AS `City_ID`,`city`.`City_Name` AS `City_Name`,`city`.`Country_ID` AS `Country_ID`,`country`.`Country_Name` AS `Country_Name`,`propertyphoto`.`Photo_Path` AS `Photo_Path`,`available`.`Avail_ID` AS `Avail_ID`,`available`.`Avail_ListingDate` AS `Avail_ListingDate`,`available`.`Avail_ListingPrice` AS `Avail_ListingPrice`,`available`.`Seller_Seller_ID` AS `Seller_Seller_ID`,`available`.`Agent_Agent_ID` AS `Agent_Agent_ID` from (((((((`property` join `address` on((`property`.`Address_Address_ID` = `address`.`Address_ID`))) join `street` on((`address`.`Street_Street_ID` = `street`.`Street_ID`))) join `suburb` on((`street`.`Suburb_ID` = `suburb`.`Suburb_ID`))) join `city` on((`suburb`.`City_ID` = `city`.`City_ID`))) join `country` on((`city`.`Country_ID` = `city`.`City_ID`))) left join `propertyphoto` on((`property`.`Prop_ID` = `propertyphoto`.`Property_Prop_ID`))) left join `available` on((`available`.`Property_ID` = `property`.`Prop_ID`))) group by `property`.`Prop_ID`) ;
 
 --
 -- Indexes for dumped tables
@@ -922,7 +928,25 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`Address_ID`),
-  ADD KEY `fk_Address_Street1_idx` (`Street_Street_ID`);
+  ADD KEY `fk_street_id` (`Street_Street_ID`);
+
+--
+-- Indexes for table `agent`
+--
+ALTER TABLE `agent`
+  ADD PRIMARY KEY (`Agent_ID`);
+
+--
+-- Indexes for table `available`
+--
+ALTER TABLE `available`
+  ADD PRIMARY KEY (`Avail_ID`);
+
+--
+-- Indexes for table `buyer`
+--
+ALTER TABLE `buyer`
+  ADD PRIMARY KEY (`Buyer_ID`);
 
 --
 -- Indexes for table `city`
@@ -938,6 +962,12 @@ ALTER TABLE `country`
   ADD PRIMARY KEY (`Country_ID`);
 
 --
+-- Indexes for table `person`
+--
+ALTER TABLE `person`
+  ADD PRIMARY KEY (`Person_ID`);
+
+--
 -- Indexes for table `property`
 --
 ALTER TABLE `property`
@@ -948,12 +978,26 @@ ALTER TABLE `property`
 -- Indexes for table `propertyphoto`
 --
 ALTER TABLE `propertyphoto`
+  ADD PRIMARY KEY (`Photo_ID`),
   ADD KEY `fk_property_id` (`Property_Prop_ID`);
+
+--
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`Sale_ID`);
+
+--
+-- Indexes for table `seller`
+--
+ALTER TABLE `seller`
+  ADD PRIMARY KEY (`Seller_ID`);
 
 --
 -- Indexes for table `street`
 --
 ALTER TABLE `street`
+  ADD PRIMARY KEY (`Street_ID`),
   ADD KEY `fk_suburb_id` (`Suburb_ID`);
 
 --
@@ -974,8 +1018,86 @@ ALTER TABLE `address`
   MODIFY `Address_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
+-- AUTO_INCREMENT for table `agent`
+--
+ALTER TABLE `agent`
+  MODIFY `Agent_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `available`
+--
+ALTER TABLE `available`
+  MODIFY `Avail_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `buyer`
+--
+ALTER TABLE `buyer`
+  MODIFY `Buyer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `City_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `country`
+--
+ALTER TABLE `country`
+  MODIFY `Country_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `person`
+--
+ALTER TABLE `person`
+  MODIFY `Person_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+
+--
+-- AUTO_INCREMENT for table `property`
+--
+ALTER TABLE `property`
+  MODIFY `Prop_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+
+--
+-- AUTO_INCREMENT for table `propertyphoto`
+--
+ALTER TABLE `propertyphoto`
+  MODIFY `Photo_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `Sale_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `seller`
+--
+ALTER TABLE `seller`
+  MODIFY `Seller_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `street`
+--
+ALTER TABLE `street`
+  MODIFY `Street_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+
+--
+-- AUTO_INCREMENT for table `suburb`
+--
+ALTER TABLE `suburb`
+  MODIFY `Suburb_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `address`
+--
+ALTER TABLE `address`
+  ADD CONSTRAINT `fk_street_id` FOREIGN KEY (`Street_Street_ID`) REFERENCES `street` (`Street_ID`);
 
 --
 -- Constraints for table `city`
