@@ -1,22 +1,55 @@
 <?php
+// $min;
+// $max;
+// $city;
+// if (isset($_GET['min'])) {
+//     $min= $_GET['min'];
+// } else {
+//     $min=0;
+// }
+// if (isset($_GET['max'])) {
+//     $max= $_GET['max'];
+// } else {
+//     $max=100000000;
+// }
+// if (isset($_GET['city'])) {
+//     $city= $_GET['city'];
+// } else {
+//     $city="Cape Town";
+// }
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+include("../../connection.php");
 
-include("../connection.php");
 
-$where = " where propertyDetails.Prop_ID ";
-
-if(isset($_GET['propertyID'])){
-    $where = $where . " = " . $_GET['propertyID'];
+$cityWhere = "propertyDetails.City_ID ";
+if(isset($_GET['cityID'])){
+    if($_GET['cityID'] > 0){
+        $cityWhere = $cityWhere . " = " . $_GET['cityID'];
+    }
 }
+$minWhere = "available.Avail_ListingPrice ";
+if(isset($_GET['minPrice'])){
+    $minWhere = $minWhere . " >= " . $_GET['minPrice'];
+}
+$maxWhere = "available.Avail_ListingPrice ";
+if(isset($_GET['maxPrice'])){
+    if($_GET['maxPrice'] > 0){
+        $maxWhere = $maxWhere . " <= " . $_GET['maxPrice'];
+    }
+}
+
+$where = " where " . $cityWhere;
 
 $sql = "select *
 from `available`
 join propertyDetails on available.Property_ID = propertyDetails.Prop_ID"
-. $where;
-$result = $conn->query($sql);
+. $where
+. " and " . $minWhere
+. " and " . $maxWhere;
 
+$result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
 	while($arrayresult = mysqli_fetch_array($result)) {
@@ -39,7 +72,14 @@ if ($result->num_rows > 0) {
             "city"=> $city
         );
 
-                $street = array (
+        $suburb = array (
+            "id"=>$arrayresult['Suburb_ID'],
+            "name"=>$arrayresult['Suburb_Name'],
+            "zip"=>$arrayresult['Suburb_ZIP'],
+            "city"=> $city
+        );
+
+        $street = array (
             "id"=>$arrayresult['Street_Street_ID'],
             "name"=>$arrayresult['Street_Name'],
             "suburb"=> $suburb
@@ -61,20 +101,19 @@ if ($result->num_rows > 0) {
             "suburbID"=>$arrayresult['Suburb_ID'],
             "address"=>$address,
             "photo"=>$arrayresult['Photo_Path']
-
-        );
+                                           );
     }
 	// set response code - 200 OK
     http_response_code(200);
 
     echo json_encode($myArray);
 } else {
-// set response code - 404 Not found
-    http_response_code(404);
+// // set response code - 404 Not found
+//     http_response_code(404);
 
     // tell the user no products found
     echo json_encode(
-        array("message" => "No properties found.")
+        array()
     );
 }
 $conn->close();
