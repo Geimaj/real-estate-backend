@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("../connection.php");
 
-$sql = "SELECT * FROM person";
+$sql = "SELECT * FROM personDetails";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -19,6 +19,11 @@ if ($result->num_rows > 0) {
             "phone"=>$arrayresult['Person_PhoneNumber'],
             "email"=>$arrayresult['Person_Email'],
             "dob"=>$arrayresult['Person_DOB'],
+
+            "agentID"=>$arrayresult['Agent_ID'],
+            "buyerID"=>$arrayresult['Buyer_ID'],
+            "sellerID"=>$arrayresult['Seller_ID'],
+
         );
     }
 	// set response code - 200 OK
