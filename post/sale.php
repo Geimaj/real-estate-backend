@@ -14,9 +14,9 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("../connection.php");
 
-    $sql = "SET @listingID := " . $sale['id'] . ";" .
-    "SET @buyerID := " . $sale['buyerID'] . ";" .
-    "SET @saleAmmount := " . $sale['salePrice'] . ";" .
+    $sql = "SET @listingID := " . $sale['id'] . "; " .
+    "SET @buyerID := " . $sale['buyerID'] . "; " .
+    "SET @saleAmmount := " . $sale['salePrice'] . "; " .
 
     "SELECT
 	@agentID := available.Agent_Agent_ID,
@@ -34,7 +34,7 @@ include("../connection.php");
 
     delete from `available` where available.Avail_ID = @listingID";
 
-$result = $conn->query($sql);
+$result = $conn->multi_query($sql);
 
 if($result != false){
 
