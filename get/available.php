@@ -60,7 +60,11 @@ if ($result->num_rows > 0) {
             "propertyID"=>$arrayresult['Property_ID'],
             "suburbID"=>$arrayresult['Suburb_ID'],
             "address"=>$address,
-            "photo"=>$arrayresult['Photo_Path']
+            "photo"=>$arrayresult['Photo_Path'],
+            "pool"=>$arrayresult['Prop_Pool'],
+            "beds"=>$arrayresult['Prop_Bedrooms'],
+            "baths"=>$arrayresult['Prop_Bathrooms'],
+
 
         );
     }
