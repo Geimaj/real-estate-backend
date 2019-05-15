@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
             "id" => $arrayresult['Agent_Agent_ID'],
             "firstname"=>$arrayresult['Person_Firstname'],
             "lastname"=>$arrayresult['Person_LastName'],
-            "totalValueSold"=>$arrayresult['totalValue'],
+            "totalValue"=>$arrayresult['totalValue'],
             "totalSales" => $arrayresult['totalSales'],
             "avgSales"=>$arrayresult['avgSales'],
             "avgTimeOnMarket"=>$arrayresult['avgTimeOnMarket']
