@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
 
         $address = array (
             "id"=>$arrayresult['Address_ID'],
-            "name"=>$arrayresult['Address_House_Number'],
+            "houseNumber"=>$arrayresult['Address_House_Number'],
             "street"=> $street
         );
 

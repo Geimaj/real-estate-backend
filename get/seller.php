@@ -7,7 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("../connection.php");
 
-$sql = "SELECT * FROM seller join person on seller.Person_Person_ID = person.Person_ID";
+$sql = "SELECT * FROM seller join personDetails on seller.Person_Person_ID = personDetails.Person_ID";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -20,7 +20,11 @@ if ($result->num_rows > 0) {
             "lastname"=>$arrayresult['Person_LastName'],
             "phone"=>$arrayresult['Person_PhoneNumber'],
             "email"=>$arrayresult['Person_Email'],
-            "dob"=>$arrayresult['Person_DOB']
+            "dob"=>$arrayresult['Person_DOB'],
+
+            "agentID"=>$arrayresult['Agent_ID'],
+            "buyerID"=>$arrayresult['Buyer_ID'],
+            "sellerID"=>$arrayresult['Seller_ID'],
                                            );
     }
 	// set response code - 200 OK

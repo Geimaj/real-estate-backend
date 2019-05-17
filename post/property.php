@@ -14,15 +14,13 @@ header("Content-Type: application/json; charset=UTF-8");
 include("../connection.php");
 
 // prepare statement
-$stmt = $conn->prepare("update `property`
-set
-Prop_Description = ?,
-Prop_Bedrooms = ?,
-Prop_Bathrooms = ?,
-Prop_SquareMeter = ?,
-Address_Address_ID = ?,
-Prop_Pool = ?
-where Prop_ID = ?");
+$stmt = $conn->prepare("INSERT INTO `property`(`Prop_Description`,
+`Prop_Bedrooms`,
+`Prop_Bathrooms`,
+`Prop_SquareMeter`,
+`Address_Address_ID`,
+`Prop_Pool`)
+VALUES (?,?,?,?,?,?)");
 
 
 if($stmt == false){
@@ -31,11 +29,11 @@ if($stmt == false){
     die();
 }
 
-$address = $property['address'];
+$addressID = $property['address']['id'];
 
 //bind params
-$stmt->bind_param("siiiiii", $property['description'], $property['bedrooms'],
-$property['bathrooms'],$property['squareMeter'],$address['id'], $property['pool'], $property['propertyID']);
+$stmt->bind_param("siiiii", $property['description'], $property['bedrooms'],
+$property['bathrooms'],$property['squareMeter'],$addressID, $property['pool']);
 
 $result = $stmt->execute();
  if($result===TRUE){
@@ -43,13 +41,13 @@ $result = $stmt->execute();
      http_response_code(200);
      echo json_encode(
         array(
-            "id" => $property['propertyID'],
-        //     "Description" =>  $property['Description'],
-	    // "Prop_Bedrooms" =>  $property['Bedrooms'],
-	    // "Bathrooms" =>  $property['Bathrooms'],
-	    // "SquareMeter" =>  $property['SquareMeter'],
-	    // "AddressID" =>  $property['AddressID'],
-	    // "Pool" =>  $property['Pool']
+            "propertyID" => $conn->insert_id,
+            "description" =>  $property['description'],
+            "bedrooms" =>  $property['bedrooms'],
+            "bathrooms" =>  $property['bathrooms'],
+            "squareMeter" =>  $property['squareMeter'],
+            "addressID" =>  $addressID,
+            "pool" =>  $property['pool']
         )
      );
      die();

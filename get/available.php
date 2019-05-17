@@ -73,12 +73,11 @@ if ($result->num_rows > 0) {
 
     echo json_encode($myArray);
 } else {
-// set response code - 404 Not found
-    http_response_code(404);
+    http_response_code(204);
 
     // tell the user no products found
     echo json_encode(
-        array("message" => "No properties found.")
+        array()
     );
 }
 $conn->close();

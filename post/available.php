@@ -14,14 +14,23 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("../connection.php");
 
-$stmt = $conn->prepare("INSERT INTO `available`( `Avail_ListingDate`, `Avail_ListingPrice`, `Seller_Seller_ID`, `Agent_Agent_ID`, `Property_ID`) VALUES (?,?,?,?,?");
+$stmt = $conn->prepare("INSERT INTO `available`(
+    `Avail_ListingDate`,
+    `Avail_ListingPrice`,
+    `Seller_Seller_ID`,
+    `Agent_Agent_ID`,
+    `Property_ID`)
+    VALUES (?,?,?,?,?)");
 
 if($stmt == false){
     print_r( $conn->error_list );
     echo $conn->error_get_last();
     die();
 }
-$stmt->bind_param("siiii", date('d/m/Y'), $listing['listingPrice'],$listing['sellerID'],$listing['agentID'],$listing['propertyID'] );
+
+$date = date('d/m/Y');
+
+$stmt->bind_param("siiii", $date, $listing['listingPrice'],$listing['sellerID'],$listing['agentID'],$listing['propertyID'] );
 
 $result = $stmt->execute();
 
@@ -31,7 +40,7 @@ $result = $stmt->execute();
      echo json_encode(
         array(
             "id" => $conn->insert_id,
-            "listingDate" => date(),
+            "listingDate" => $date,
             "listingPrice" => $listing['listingPrice'],
             "sellerID" => $listing['sellerID'],
             "agentID" => $listing['agentID'],
@@ -42,7 +51,7 @@ $result = $stmt->execute();
      die();
  }
 // set response code - 404 Not found
-    http_response_code(404);
+    http_response_code(500);
     print_r($conn->error_list);
    echo json_encode(
        array("message" => $conn->error_get_last())
