@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "real-estate-backend",
+  "env": {
+    "mysql_password": "@mysql_password",
+    "mysql_servername": "@mysql_servername",
+    "mysql_user": "@mysql_user"
+  },
+  "builds": [
+    { "src": "*.php", "use": "now-php-extra" },
+    { "src": "get/*.php", "use": "now-php-extra" },
+    { "src": "delete/*.php", "use": "now-php-extra" },
+    { "src": "post/*.php", "use": "now-php-extra" },
+    { "src": "put/*.php", "use": "now-php-extra" },
+    { "src": "**.jpg", "use": "@now/static" },
+    { "src": "**.png", "use": "@now/static" }
+  ]
+}

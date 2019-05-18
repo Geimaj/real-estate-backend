@@ -8,6 +8,14 @@ if($password === null){
     die('Enviroment variable [mysql_password] not set');
 }
 
+if(getenv('mysql_user') != null){
+    $username = getenv('mysql_user');
+}
+
+if(getenv('mysql_servername') != null){
+    $servername = getenv('mysql_servername');
+}
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
