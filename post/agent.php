@@ -1,8 +1,11 @@
 <?php
-if (isset($_GET['person_ID'])) {
-    $person_ID= $_GET['person_ID'];
-} else {
-    $person_ID="Error";
+$body = file_get_contents('php://input');
+if (isset($body)) {
+    $agent= json_decode($body,true);
+}
+else{
+    echo "provide agentID";
+    die();
 }
 
 // required headers
@@ -11,16 +14,21 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("../connection.php");
 
-$sql = "INSERT INTO `agent`(Person_Person_ID) 
-VALUES (".$person_ID.")";
-echo $sql;
+$sql = "INSERT INTO `agent`(Person_Person_ID)
+VALUES (".$agent['id'].")";
+
 if($conn->query($sql)===TRUE){
 // set response code - 200 OK
     http_response_code(200);
-   $agent_id=$conn->insert_id;
+    echo json_encode(
+        array(
+            'id'=>$conn->insert_id
+        )
+        );
 } else {
 // set response code - 404 Not found
     http_response_code(404);
+    echo json_encode(array());
 }
 $conn->close();
 ?>

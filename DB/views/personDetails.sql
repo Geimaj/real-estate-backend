@@ -12,7 +12,7 @@ agent.Agent_ID,
 buyer.Buyer_ID,
 seller.Seller_ID
 FROM `person`
-left join agent on person.Person_ID = agent.Agent_ID
-left join buyer on person.Person_ID = buyer.Buyer_ID
-left join seller on person.Person_ID = seller.Seller_ID
+left join agent on person.Person_ID = agent.Person_Person_ID
+left join buyer on person.Person_ID = buyer.Person_Person_ID
+left join seller on person.Person_ID = seller.Person_Person_ID
 )
