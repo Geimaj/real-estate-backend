@@ -16,7 +16,6 @@ if ($result->num_rows > 0) {
 	while($arrayresult = mysqli_fetch_array($result)) {
        $myArray[] = array(
             "id"=>$arrayresult['Person_ID'],
-            "AddressID"=>$arrayresult['Address_Address_ID'],
             "firstname"=>$arrayresult['Person_Firstname'],
             "lastname"=>$arrayresult['Person_LastName'],
             "phone"=>$arrayresult['Person_PhoneNumber'],

@@ -20,7 +20,7 @@ $stmt = $conn->prepare("INSERT INTO `available`(
     `Seller_Seller_ID`,
     `Agent_Agent_ID`,
     `Property_ID`)
-    VALUES (?,?,?,?,?)");
+    VALUES ( STR_TO_DATE( ? , '%d-%m-%Y' ) ,?,?,?,?)");
 
 if($stmt == false){
     print_r( $conn->error_list );
@@ -28,7 +28,7 @@ if($stmt == false){
     die();
 }
 
-$date = date('d/m/Y');
+$date = date('d-m-Y');
 
 $stmt->bind_param("siiii", $date, $listing['listingPrice'],$listing['sellerID'],$listing['agentID'],$listing['propertyID'] );
 

@@ -25,7 +25,7 @@ include("../connection.php");
     @listingPrice := available.Avail_ListingPrice,
     @listingDate := available.Avail_ListingDate,
     @now := (select NOW()),
-    @percentage := (select @listingPrice/@salePrice*100)
+    @percentage := (select (@saleAmmount - @listingPrice) / @listingPrice*100)
 
     FROM `available` where available.Avail_ID = @listingID;
 
