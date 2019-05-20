@@ -33,7 +33,16 @@ if(isset($_GET['pool'])){
 
     $poolWhere = $poolWhere . " in (" . $_GET['pool'] . " )";
 }
+$bathsWhere = "Prop_Bathrooms ";
+if(isset($_GET['baths'])){
 
+    $bathsWhere = $bathsWhere . " >= " . $_GET['baths'];
+}
+$bedsWhere = "Prop_Bedrooms ";
+if(isset($_GET['beds'])){
+
+    $bedsWhere = $bedsWhere . " >= " . $_GET['beds'];
+}
 $where = " where " . $cityWhere;
 $sql = "select *
 from `available`
@@ -42,7 +51,9 @@ join propertyDetails on available.Property_ID = propertyDetails.Prop_ID"
 . " and " . $suburbWhere
 . " and " . $poolWhere
 . " and " . $minWhere
-. " and " . $maxWhere;
+. " and " . $maxWhere
+. " and " . $bedsWhere
+. " and " . $bathsWhere;
 
 
 $result = $conn->query($sql);

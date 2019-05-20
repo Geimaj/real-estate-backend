@@ -2,6 +2,9 @@
 
 > Real estate management system (DBS400s Assignment 2)
 
+Live version hosted with heroku:
+https://nameless-temple-89949.herokuapp.com/
+
 ## Setup
 
 set envrioment variable 'mysql_password' to the password for your root mysql user.
