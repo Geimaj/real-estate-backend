@@ -14,12 +14,12 @@ set envrioment variable 'mysql_password' to the password for your root mysql use
 PHP
 MySQL
 
-# start PHP application server
+### start PHP application server
 
 ```bash
 php -S localhost:5000
 ```
 
-# run create script
+### run create script
 
-http://localhost:5000/create/database.php
+http://localhost:5000/create-database.php
