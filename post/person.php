@@ -14,16 +14,14 @@ header("Content-Type: application/json; charset=UTF-8");
 include("../connection.php");
 
 $sql = $conn->prepare("INSERT INTO `person`(
-    `Address_Address_ID`,
     `Person_Firstname`,
     `Person_LastName`,
     `Person_PhoneNumber`,
     `Person_Email`,
-    `Person_DOB`) VALUES (?,?,?,?,?, STR_TO_DATE( ? , '%d-%m-%Y' ) )");
+    `Person_DOB`) VALUES (?,?,?,?, STR_TO_DATE( ? , '%d-%m-%Y' ) )");
 
 if($sql != false){
-    $sql->bind_param("isssss",
-    $person['address'],
+    $sql->bind_param("sssss",
      $person['firstname'],
      $person['firstname'],
      $person['phone'],
@@ -55,7 +53,6 @@ if($sql != false){
 
         echo json_encode(array(
             "id" => $person_id,
-            "addressID" => $person['address'],
             "firstname" => $person['firstname'],
             "lastname" => $person['lastname'],
             "phone" => $person['phone'],
@@ -71,7 +68,7 @@ if($sql != false){
 
 // set response code - 404 Not found
     http_response_code(404);
-    echo $sql->error;
+    // echo $sql->error;
     print_r( $conn->error_list );
 
 $conn->close();
