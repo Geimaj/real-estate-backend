@@ -7,7 +7,6 @@ include("../connection.php");
 
 $sql = "SELECT * FROM sales";
 $result = $conn->query($sql);
-$jsonarray=array();
 
 if ($result->num_rows > 0) {
     // output data of each row
